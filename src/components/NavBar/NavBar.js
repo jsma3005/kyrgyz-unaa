@@ -35,6 +35,23 @@ const NavBar = () => {
                             </li>
                         </ul>
                         <ol className="navbar-nav">
+                        <li className="nav-item dropdown">
+                                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        RU
+                                    </a>
+                                    <ul className="dropdown-menu"  aria-labelledby="navbarDropdown">
+                                        <li>
+                                            <a className="dropdown-item" href="#">
+                                                ENG
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a className="dropdown-item" href="#">
+                                                KG
+                                            </a>
+                                        </li>
+                                    </ul>
+                            </li>
                             <li className="nav-item">
                                 <a href="" className="nav-link">
                                     <i className="fa fa-clock"></i>
@@ -49,23 +66,7 @@ const NavBar = () => {
                                     </span>
                                 </a>
                             </li>
-                            <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    RU
-                                </a>
-                                <ul className="dropdown-menu"  aria-labelledby="navbarDropdown">
-                                    <li>
-                                        <a className="dropdown-item" href="#">
-                                            ENG
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a className="dropdown-item" href="#">
-                                            KG
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                           
                         </ol>
                     </div>
                 </div>

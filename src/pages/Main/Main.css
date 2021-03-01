@@ -575,6 +575,9 @@
         align-items:center; 
 
     }  
+    .bannerText h1{
+        font-size: 40px !important;
+    }
 }
 
 @media (max-width:1451px){
@@ -608,6 +611,8 @@
         font-size: 40px !important;
     }
 }
+
+
 
 @media (max-width:1289px){
     .bannerCenterContent{

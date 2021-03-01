@@ -19,28 +19,23 @@ const Products = () => {
 
             <main>
                 <section>
+                    <div className="menuCenter">
+                        <ul className="menuInline"> 
+                            <li>
+                                <a href="" className="actDark">
+                                    Готовые продукции
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    В стадии разработки
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                     <div className="productCenter">
                         <div className="mt-3 cate">
-                            <h1>Категории</h1>
-                        </div>
-                        <div className="menuCenter">
-                            <ul className="menuInline"> 
-                                <li>
-                                    <a href="" className="actDark">
-                                    Все модели
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        Продукция
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="create.html">
-                                    В стадии разработки
-                                    </a>
-                                </li>
-                            </ul>
+                                <h1>Категории</h1>
                         </div>
                         <div className="productInline">
                             <div className="leftSide">
