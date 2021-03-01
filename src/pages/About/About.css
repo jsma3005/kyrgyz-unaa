@@ -1,0 +1,846 @@
+    /* Заднйи фон о нас здание */
+
+
+
+
+
+    .LightBanner{
+        background: url('../../assets/О нас/about.jpg') center / cover;
+        width: 100%;
+        height: 100vh;
+        background-attachment: fixed;
+        position: relative;
+
+    }
+
+    .LightBanner:before{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        content: '';
+        left:0;
+        top: 0;
+        background-color: rgba(0,0,0,0.4);
+        z-index: 2;
+    }
+
+    .bannerCenterAbout{
+        width: 95%;
+        z-index: 4;
+        position: relative;
+        margin:  auto;
+        height: 80%;
+        display: flex;
+        align-items: center;
+    }
+    .bannerAbout{
+        margin-top: 100px;
+    }
+    .bannerAbout h1 {
+        text-transform: uppercase;
+        color: white;
+        font-size:50px !important;
+        
+    }
+    .firstAbout{
+        margin-top: 50px;
+        margin-left: 50px;
+        border-left: 5px solid white;
+        padding-left: 20px;
+    }
+    .firstAbout h1{
+        color: #03e9f4;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* ABOUT */
+
+
+
+
+
+
+    .onasCenter{
+        width: 60%;
+        margin: auto;
+    }
+    .textO h1{
+        text-align: left;
+        font-size:40px;
+        margin-top: 50px;
+    }
+    .textO .text{
+        margin-top: 50px;
+        
+    }
+    .textO .text p{
+        color: #767676 !important;
+        font-size: 20px;
+    }
+    .textO .TextWithDate{
+        color: #767676;
+        font-style: italic;
+    }
+
+    .border-left{
+        border-left: 3px solid #03e9f4;
+        padding-left: 20px;
+    }
+
+
+
+
+
+
+
+    /* Миссияя блок*/
+
+
+
+
+
+    .centerMission{
+        width: 80%;
+        margin: auto;
+        margin-top: 100px;
+    }
+    .inlineMission{
+        display: flex;
+        justify-content: space-between;
+    }
+    .nas h1{
+        font-size: 60px;
+    }
+    .nas{
+        text-align: center;
+        margin-top: 100px;
+        text-transform: uppercase;
+    }
+    .vidos{
+        text-align: center;
+        margin-top: 50px;
+    }
+    .textM{
+        padding-top: 40px;
+    }
+    .textM h1{
+        font-size: 60px !important;
+        text-transform: uppercase;
+    }
+    .textM p{
+        color: #767676;
+        font-size: 20px;
+    }
+    .buss img{
+        width: 600px; 
+        border-radius: 100%;
+        transition: 0.4s;
+    }
+    .buss img:hover{
+        transform: scale(1.3);
+        transition: 0.4s;
+
+    }
+
+    .Lorem{
+        margin-top: 30px;
+    }
+
+
+
+
+
+
+
+
+
+    /* goal */
+
+
+
+
+
+
+
+    .centerGoal{
+        width: 100%;
+        margin: auto;
+        margin-top: 100px !important;
+        position: relative;
+    }
+
+
+    .scale {
+        background: url('../../assets/О нас/mans.jpg') center / cover;
+        width: 100%;
+        height: 400px;
+        transition: 1s;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .scale:before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,.8);
+        transition: 1s;
+        transition-delay: 1s;
+    }
+    .scale:hover::before{
+        content: '';
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(255,255,255,0.1);
+        transform: skew(-100deg);
+        transition: .3s;
+        transition-duration: 1s;
+        z-index: 5;
+    }
+    .leftImg{
+        overflow: hidden;
+    }
+    .goalText {
+        padding:90px;
+        color: white;
+        z-index: 10;
+    }
+    .goalText h1{
+        font-size: 60px;
+    }
+    .goalText p{
+        font-size:20px;
+    }
+    .scale:hover{
+        transform: scale(1.2);
+        transition:1s;
+
+    }
+    .scale:hover .goalText{
+        color: white;
+    }
+
+
+
+
+    /*  Ценности - качество */
+
+
+
+    .cenT h1{
+        font-size: 50px;
+        margin-top: 100px;
+        text-align: center;
+    }
+    
+    .cardBlockCenter{
+        width: 95%;
+        margin:  auto;
+        margin-top: 50px;
+    }
+
+    .cardBlockInline{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cardBlockCennoct{
+        width:300px;
+        height: 400px;
+        text-align: center;
+        margin: 1rem 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        padding: 30px 20px;
+        transition: 0.7s;
+        background-color:rgba(0,0,0,0.8) ;
+    }
+    .cardBlockCennoct:hover{
+        transition: 0.7s;
+        color: white !important;
+    }
+
+    .cardBlockCennoct p{
+        color: grey;
+        font-size: 18px;
+    }
+     .cardBlockCennoct:hover i{   
+        transition: 0.7s;
+        color: white;
+    }
+     .cardBlockCennoct:hover p{   
+        transition: 0.7s;
+        color: white;
+    }
+
+    .cardBlockCennoct i{
+        font-size: 55px;
+        color: #767676;
+        margin-bottom: 10px;
+        margin-top: 2rem;
+    }
+    .cardBlockCennoct h1{
+        font-weight: lighter;
+        margin-bottom: 10px;
+    }
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MEDIA ADAPTIVE */
+
+
+/* BANNER */
+
+@media (max-width:1314px){
+    .bannerCenterAbout{
+        width: 90%;
+        z-index: 4;
+        position: relative;
+        margin:  auto;
+        height: 80%;
+        display: flex ;
+        align-items:center;
+    }
+    .bannerAbout h1{
+        font-size: 40px !important;
+    }
+}
+@media (max-width:1126px){
+    .bannerAbout h1{
+        font-size: 30px !important;
+    }
+}
+
+/* @media (max-width:1223px){
+    .bannerCenterAbout{
+        width: 90%;
+        z-index: 4;
+        position: relative;
+        margin:  auto;
+        height: 80%;
+        display: flex ;
+        align-items:center;
+    }
+    .bannerAbout{
+        margin-top: 100px;
+    }
+    .bannerAbout h1 {
+        text-transform: uppercase;
+
+        font-size:40px !important;
+        
+    }
+} */
+
+
+@media (max-width:1068px){
+    .bannerAbout h1{
+        font-size: 30px !important;
+    }
+}
+
+
+
+@media (max-width:807px){
+    .bannerAbout h1{
+        font-size: 25px !important;
+    }
+}
+
+
+
+
+@media (max-width:854px){
+    .bannerCenterAbout{
+        width: 90%;
+        z-index: 4;
+        position: relative;
+        margin:  auto;
+        height: 80%;
+        display: flex ;
+        align-items:center;
+        
+    }
+    .bannerAbout h1{
+        font-size: 20px !important;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:565px){
+    .bannerAbout h1{
+        font-size: 36px !important;
+    }
+    .firstAbout h1{
+        font-size: 17px !important;
+    }
+
+
+}
+
+
+
+@media (max-width:417px){
+    .bannerAbout h1{
+        font-size:25px !important;
+    }
+    .firstAbout h1{
+        font-size: 17px !important;
+    }
+    .firstAbout{
+        margin-top:     30px;
+        margin-left: 20px;
+        border-left: 5px solid white;
+        padding-left: 10px;
+    }
+  
+}
+
+
+
+
+@media (max-width:406px){
+    .bannerAbout h1{
+        font-size:25px !important;
+    }
+    .firstAbout h1{
+        font-size: 15px !important;
+    }
+}
+
+
+
+@media (max-width:401px){
+    .bannerAbout h1{
+        font-size:25px !important;
+    }
+    .firstAbout h1{
+        font-size: 13px !important;
+    }
+}
+
+
+@media (max-width:353px){
+    .bannerAbout h1{
+        font-size:23px !important;
+    }
+    .firstAbout h1{
+        font-size: 20px !important;
+        width: 200px;
+
+    }
+    .firstAbout{
+        margin-left: 5px;
+        padding-left: 2px;
+    }
+
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ABOUT */
+
+
+
+
+
+@media (max-width:580px){
+
+.onasCenter{
+    width: 80%;
+    margin: auto;
+}
+.textO h1{
+    text-align: left;
+    font-size:40px;
+    margin-top: 50px;
+}
+.textO .text{
+    margin-top: 50px;
+    
+}
+.textO .text p{
+    color: #767676 !important;
+    font-size: 20px;
+}
+.textO .TextWithDate{
+    color: #767676;
+    font-style: italic;
+}
+
+.border-left{
+    border-left: 3px solid #03e9f4;
+    padding-left: 20px;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* VIDEO */
+
+
+@media (max-width:794px){
+    .vidos iframe{
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+MISSION
+
+
+
+ */
+
+@media (max-width:1814px){
+    .centerMission{
+        width: 60%;
+        margin: auto;
+        margin-top: 100px;
+    }
+}
+
+@media (max-width:1639px){
+    .centerMission{
+        width: 70%;
+        margin: auto;
+        margin-top: 100px;
+    }
+}
+
+
+@media (max-width:1410px){
+    .centerMission{
+        width: 80%;
+        margin: auto;
+        margin-top: 100px;
+    }
+}
+
+ @media (max-width:1173px){
+    .centerMission{
+        width: 60%;
+        margin: auto;
+        margin-top: 100px;
+    }
+    .inlineMission{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nas{
+        text-align: center;
+        margin-top: 50px;
+
+    }
+    .vidos{
+        text-align: center;
+        margin-top: 50px;
+    }
+    .textM{
+        padding-top: 30px;
+    }
+    .textM h1{
+        font-size: 40px !important;
+        text-transform: uppercase;
+    }
+    .textM p{
+        color: #767676;
+        font-size: 20px;
+    }
+    .buss img{
+        width: 100%; 
+        border-radius: 100%;
+        transition: 0.4s;
+    }
+ }
+
+
+
+@media (max-width:580px){
+    .centerMission{
+        width: 80%;
+        margin: auto;
+        margin-top: 100px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* GOAL */
+
+@media (max-width:597px){
+    .goalText {
+        padding:50px;
+        color: white;
+        z-index: 10;
+    }
+    .goalText h1{
+        font-size: 40px;
+    }
+    .goalText p{
+        font-size:20px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 5 cards  */
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:1136px){
+    .cardBlockCennoct{
+        width:400px;
+        height: 320px;
+        text-align: center;
+        margin: 10px 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        padding: 30px 20px;
+        transition: 0.7s;
+        background-color:rgba(0,0,0,0.8) ;
+    }
+}
+
+
+
+@media (max-width:968px){
+    .cardBlockCennoct{
+        width:300px;
+        height: 320px;
+        text-align: center;
+        margin: 10px 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        padding: 30px 20px;
+        transition: 0.7s;
+        background-color:rgba(0,0,0,0.8) ;
+    }
+}
+
+
+
+@media (max-width:757px){
+    .cardBlockCennoct{
+        width:270px;
+        height: 320px;
+        text-align: center;
+        margin: 10px 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        padding: 30px 20px;
+        transition: 0.7s;
+        background-color:rgba(0,0,0,0.8) ;
+    }
+}
+
+
+@media (max-width:694px){
+    .cardBlockCennoct{
+        width:100%;
+        height: 320px;
+        text-align: center;
+        margin: 10px 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        padding: 30px 20px;
+        transition: 0.7s;
+        background-color:rgba(0,0,0,0.8) ;
+    }
+}
+
+
+
+@media (max-width:355px){
+    .cardBlockCennoct{
+        width:100%;
+        height: 400px;
+        text-align: center;
+        margin: 10px 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        padding: 30px 20px;
+        transition: 0.7s;
+        background-color:rgba(0,0,0,0.8) ;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

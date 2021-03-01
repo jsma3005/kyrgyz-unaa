@@ -1,0 +1,270 @@
+
+.backs{
+    background: url('../../assets/Новости/news.jpg') center / cover;
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    text-align: center;
+}
+.backs h1{
+    padding-top:130px;
+    font-size: 70px !important;
+    color: white;
+    position: relative;
+}
+.back3 h1{
+    padding-top:130px;
+    font-size: 70px !important;
+    color: white;
+    position: relative;
+}
+.back3{
+    background: url('../../assets/Новости/office.jpg') center / cover;
+    width: 100%;
+    height:70vh;
+    position: relative;
+    text-align: center;
+}
+.back3:before{
+    width: 100%;
+    height: 80vh;
+    content: '';
+    position: absolute;
+    background-color: rgba(0,0,0,0.4);
+    left: 0;
+    top: 0;
+}
+.back2:before{
+    width: 100%;
+    height: 80vh;
+    content: '';
+    position: absolute;
+    background-color: rgba(0,0,0,0.2);
+    left: 0;
+    top: 0;
+}
+.backs:before{
+    width: 100%;
+    height: 80vh;
+    content: '';
+    position: absolute;
+    background-color: rgba(0,0,0,0.4);
+    left: 0;
+    top: 0;
+}
+.par{
+    width:200px;
+    height: 200px;
+}
+.par img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+/* Карточки новости */
+
+
+
+
+
+
+.news{
+    width: 90%;
+    margin:  auto;
+    margin-top: 100px;
+}
+.generalNew{
+    display: flex;
+    justify-content: space-between;
+}
+
+.generalNew{
+    border-left: 5px solid red;
+    padding-left: 10px;
+}
+.generalNew a{
+    color: black;
+    text-decoration: none;
+}
+.centerNew{
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+}
+.icons{
+    display: flex;
+    list-style: none;
+}
+.icons li{
+    margin: 0 10px !important;
+    font-size: 25px;
+}
+.inlineNews{
+    display: flex;
+    justify-content: center;
+}
+.inlineNews .cards{
+    margin: 0 20px;
+}
+.cards{
+    transition: 0.5s;
+    box-shadow: 0 5px 20px gainsboro;
+    width: 320px !important;
+    height: 300px;
+    position: relative;
+}
+.cards:hover{
+    border-bottom: 3px solid red;
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+.cards .imgcard img{
+    width: 100%;
+}
+.cards-body{
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+.cards-body p:nth-child(1){
+    color: grey;
+}
+.cards-body p:nth-child(2){
+    font-size: 20px;
+}.news{
+    width: 90%;
+    margin:  auto;
+    margin-top: 100px;
+}
+.generalNew{
+    display: flex;
+    justify-content: space-between;
+}
+
+.generalNew{
+    border-left: 5px solid red;
+    padding-left: 10px;
+}
+.generalNew a{
+    color: black;
+    text-decoration: none;
+}
+.centerNew{
+    width: 95%;
+    margin: auto;
+    margin-top: 50px;
+}
+.inlineNews{
+    display: flex;
+    flex-wrap: wrap;
+}
+.inlineNews .cards{
+    margin: 20px 20px;
+}
+.cards{
+    box-shadow: 0 5px 20px gainsboro;
+    width: 400px;
+    height: 500px;
+    position: relative;
+}
+.cards:hover{
+    border-bottom: 3px solid red;
+}
+.cards .imgcard img{
+    width: 100%;
+}
+.cards-body{
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+.cards-body p:nth-child(1){
+    color: grey;
+}
+.cards-body p:nth-child(2){
+    font-size: 20px;
+}
+
+
+
+.cards-body a{
+    margin: 20px 0 !important;
+    padding: 10px 20px;
+    color:white;
+    text-decoration: none;
+    background-color: crimson;
+    border-radius:10px;
+}
+.cards-body a:hover{
+    color: white;
+}
+.bt{
+    text-align: right;
+}
+
+
+
+
+/* Media */
+
+
+/* Карусель */
+
+
+
+
+@media (max-width:1861px){
+
+    .backs{
+        background: url('../../assets/Новости/news.jpg') center / cover;
+        width: 100%;
+        height: 50vh;
+        position: relative;
+        text-align: center;
+    }
+    
+    .back3{
+        background: url('../../assets/Новости/office.jpg') center / cover;
+        width: 100%;
+        height:50vh;
+        position: relative;
+        text-align: center;
+    }
+    }
+    
+    
+    
+    
+    @media (max-width:711px){
+        .backs h1{
+            font-size: 50px !important;
+        }
+        .back3 h1{
+            font-size: 50px !important;
+        }
+    }
+    @media (max-width:528px){
+        .backs h1{
+            font-size: 40px !important;
+        }
+        .back3 h1{
+            font-size: 40px !important;
+        }
+    }
+    
+    @media (max-width:408px){
+        .backs h1{
+            font-size: 30px !important;
+        }
+        .back3 h1{
+            font-size: 30px !important;
+        }
+    }
+    
+    
