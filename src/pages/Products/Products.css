@@ -43,7 +43,10 @@
   
   
   .menuCenter{
-    width:462px;
+    display: flex;
+    justify-content: center;
+    width:100%;
+    align-items: center;
     margin-top: 50px;
   }
   .cate{
@@ -72,7 +75,7 @@
     transition: 0.5s;
     color: black;
     text-decoration: none;
-    padding: 21px 20px;
+    padding: 21px 10px;
   
   }
   .menuInline li a:hover{
@@ -83,7 +86,7 @@
   
   .productCenter{
     width: 90%;
-    margin-top: 50px !important;
+    margin-top: 0px !important;
     margin:  auto;
   }
   .productInline{
@@ -91,7 +94,7 @@
     justify-content: space-between;
   }
   .productInline div{
-  margin: 3px 3px;
+    margin: 3px 3px;
   }
   .inlineCards{
   display: flex;
@@ -776,6 +779,45 @@
   
   
   /* Media */
+
+
+
+
+
+
+
+
+/* banner */
+
+
+@media (max-width:624px){
+  .mai{
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .banner .mai{
+    padding-left: 0 !important;
+    color:white !important;
+    position: relative;
+    z-index:5 !important;
+  }
+  .bannerT h1{
+    font-size: 50px;
+  }
+}
+
+@media (max-width:320px){
+    .bannerT h1{
+      font-size: 40px;
+    }
+}
+
+
+
+
+
 
   /* PRODUCTS */
 

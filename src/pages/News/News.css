@@ -224,7 +224,7 @@
     .backs{
         background: url('../../assets/Новости/news.jpg') center / cover;
         width: 100%;
-        height: 50vh;
+        height: 70vh;
         position: relative;
         text-align: center;
     }
@@ -232,7 +232,7 @@
     .back3{
         background: url('../../assets/Новости/office.jpg') center / cover;
         width: 100%;
-        height:50vh;
+        height:70vh;
         position: relative;
         text-align: center;
     }

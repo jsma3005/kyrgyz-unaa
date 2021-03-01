@@ -185,6 +185,9 @@
 
 
 @media (max-width:610px){
+    .osoo{
+        padding-left: 0px !important;
+    }
   .polit{
     display: flex;
     flex-direction: column;
@@ -193,5 +196,9 @@
   }
 }
 
-
+@media (max-width:320px){
+    .polit .osoo li{
+        font-size: 14px !important;
+    }
+}
 
