@@ -1,9 +1,21 @@
 import './News.css';
-import News1 from '../../assets/Главная/sl1.jpg';
-import News2 from '../../assets/Главная/sl2.jpg';
-import News3 from '../../assets/Главная/sl3.jpg';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getAllNewsAction } from '../../redux/actions/newsActions';
+import { parsedDate } from '../../utils/dateParser';
 
 const News = () => {
+    const dispatch = useDispatch();
+    const {data} = useSelector(s => s.news);
+
+    console.log(data);
+
+    const news = data !== null ? data.results : [];
+
+    useEffect(() => {
+        dispatch(getAllNewsAction(1, ))
+    }, [])
+
     return (
         <main>
             <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
@@ -45,135 +57,35 @@ const News = () => {
             </div>
             <div className="centerNew">
                 <div className="inlineNews">
-                    <div className="cards">
-                        <div className="imgcard">
-                            <img src={News1} alt="" />
-                        </div>
-                        <div className="cards-body">
-                            <p>21 февраля 2021</p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolor magni incidunt quas quod omnis quam sed unde 
-                            </p>
-                            <div className="bt">
-                                <a href="news.html">Подробнее</a>
+                    {
+                        news.length !== 0 ? (
+                            news.map(item => (
+                                <div className="cards" key={item.id}>
+                                    <div className="imgcard">
+                                        {/* <img src={item.image} alt="" /> */}
+                                        <div className='news_image' style={{background: `url('${item.image}') center / cover`}}>
+
+                                        </div>
+                                    </div>
+                                    <div className="cards-body">
+                                        <p>{parsedDate(item.created)}</p>
+                                        <p>
+                                            {item.title}
+                                        </p>
+                                        <div className="bt">
+                                            <a href="gallery.html">Подробнее</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))
+                        ) : (
+                            <div className="spinner-border" style={{width: '3rem', height: '3rem'}} role="status">
+                                <span className="visually-hidden">Загрузка...</span>
                             </div>
-                        </div>
-                    </div>
-                    <div className="cards">
-                        <div className="imgcard">
-                            <img src={News2} alt="" />
-                        </div>
-                        <div className="cards-body">
-                            <p>21 февраля 2021</p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolor magni incidunt quas quod omnis quam sed unde 
-                            </p>
-                            <div className="bt">
-                                <a href="gallery.html">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="cards">
-                        <div className="imgcard">
-                            <img src={News3} alt="" />
-                        </div>
-                        <div className="cards-body">
-                            <p>21 февраля 2021</p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolor magni incidunt quas quod omnis quam sed unde 
-                            </p>
-                            <div className="bt">
-                                <a href="gallery.html">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="cards">
-                        <div className="imgcard">
-                            <img src={News1} alt="" />
-                        </div>
-                        <div className="cards-body">
-                            <p>21 февраля 2021</p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolor magni incidunt quas quod omnis quam sed unde 
-                            </p>
-                            <div className="bt">
-                                <a href="gallery.html">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="cards">
-                        <div className="imgcard">
-                            <img src={News2} alt="" />
-                        </div>
-                        <div className="cards-body">
-                            <p>21 февраля 2021</p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolor magni incidunt quas quod omnis quam sed unde 
-                            </p>
-                            <div className="bt">
-                                <a href="gallery.html">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="cards">
-                        <div className="imgcard">
-                            <img src={News3} alt="" />
-                        </div>
-                        <div className="cards-body">
-                            <p>21 февраля 2021</p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolor magni incidunt quas quod omnis quam sed unde 
-                            </p>
-                            <div className="bt">
-                                <a href="gallery.html">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="cards">
-                        <div className="imgcard">
-                            <img src={News1} alt="" />
-                        </div>
-                        <div className="cards-body">
-                            <p>21 февраля 2021</p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolor magni incidunt quas quod omnis quam sed unde 
-                            </p>
-                            <div className="bt">
-                                <a href="gallery.html">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="cards">
-                        <div className="imgcard">
-                            <img src={News2} alt="" />
-                        </div>
-                        <div className="cards-body">
-                            <p>21 февраля 2021</p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolor magni incidunt quas quod omnis quam sed unde 
-                            </p>
-                            <div className="bt">
-                                <a href="gallery.html">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="cards">
-                        <div className="imgcard">
-                            <img src={News3} alt="" />
-                        </div>
-                        <div className="cards-body">
-                            <p>21 февраля 2021</p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolor magni incidunt quas quod omnis quam sed unde 
-                            </p>
-                            <div className="bt">
-                                <a href="gallery.html">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
+                        )
+                    }
                 </div>
             </div>
-        
         </main>
     )
 }

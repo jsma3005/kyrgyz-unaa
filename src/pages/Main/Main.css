@@ -492,7 +492,7 @@
 .cards{
     box-shadow: 0 5px 20px gainsboro;
     width: 350px;
-    height: 500px;
+    height: 450px;
     position: relative;
     transition: 0.5s;
 }
@@ -516,7 +516,7 @@
     font-size: 20px;
 }
 .cards-body .bt{
-    margin-top: 30px;
+    margin-top: 50px;
 }
 .cards-body a{
     margin: 20px 0 !important;
@@ -1063,8 +1063,8 @@
 {
     .cards{
         box-shadow: 0 5px 20px gainsboro;
-        width:400px !important;
-        height: 550px;
+        width: 400px !important;
+        height: 500px;
         position: relative;
         transition: 0.5s;
     }
@@ -1074,7 +1074,7 @@
     .cards{
         box-shadow: 0 5px 20px gainsboro;
         width: 300px;
-        height: 550px;
+        height: 500px;
         position: relative;
         transition: 0.5s;
     }
@@ -1085,7 +1085,7 @@
     .cards{
         box-shadow: 0 5px 20px gainsboro;
         width: 300px !important;
-        height: 550px;
+        height: 500px;
         position: relative;
         transition: 0.5s;
     }
@@ -1099,7 +1099,7 @@
     .cards{
         box-shadow: 0 5px 20px gainsboro;
         width: 400px;
-        height: 550px;
+        height: 500px;
         position: relative;
         transition: 0.5s;
     }

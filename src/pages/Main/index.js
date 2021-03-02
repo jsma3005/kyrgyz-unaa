@@ -1,11 +1,22 @@
 import './Main.css';
 import EngineeringImg from '../../assets/Главная/Engineering.png'
 import GenImg from '../../assets/Главная/gen.png';
-import News1 from '../../assets/Главная/sl1.jpg';
-import News2 from '../../assets/Главная/sl2.jpg';
-import News3 from '../../assets/Главная/sl3.jpg';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllNewsAction } from '../../redux/actions/newsActions';
+import { Link } from 'react-router-dom';
+import { parsedDate } from '../../utils/dateParser';
 
 const Main = () => {
+    const dispatch = useDispatch();
+    const { data } = useSelector(s => s.news);
+
+    useEffect(() => {
+        dispatch(getAllNewsAction())
+    }, [dispatch])
+
+    const news = data !== null ? data.results.slice(0, 3) : [];
+
     return (
         <main>
             <div className="GeneralBanner">
@@ -37,7 +48,7 @@ const Main = () => {
                                 <div className="oneImg">
                                     <div className="mt-5">
                                         <h4>Продукция</h4>
-                                        <a href="products.html" >Узнать больше</a>
+                                        <Link to="/products" >Узнать больше</Link>
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +56,7 @@ const Main = () => {
                                 <div className="twoImg">
                                     <div className="mt-5">
                                         <h4>Новости</h4>
-                                        <a href="gallery.html">Узнать больше</a>
+                                        <Link to="/news">Узнать больше</Link>
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +64,7 @@ const Main = () => {
                                 <div className="threeImg">
                                     <div className="mt-5">
                                         <h4>Контакты</h4>
-                                        <a href="products.html">Узнать больше</a>
+                                        <Link to="/contacts">Узнать больше</Link>
                                     </div>
                                 </div>  
                             </div>
@@ -70,9 +81,9 @@ const Main = () => {
                                 </p>
                             </div>
                             <div className="mt-4 bl righ">
-                                <a href="about.html">
+                                <Link to="/about">
                                     Узнать больше
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -124,67 +135,35 @@ const Main = () => {
             <div className="news">
                 <div className="generalNew">
                     <h1>Последние новости</h1>
-                    <p><a href="gallery.html">Все новости</a> <i className=" fa fa-arrow-right"></i></p>
+                    <p><Link to="/news">Все новости</Link> <i className=" fa fa-arrow-right"></i></p>
                 </div>
             </div>
             <div className="centerNew">
                 <div className="inlineNews">
-                    <div className="cards">
-                        <div className="imgcard">
-                            <img src={News1} alt="" />
-                        </div>
-                        <div className="cards-body">
-                            <p>21 февраля 2021</p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolor magni incidunt quas quod omnis quam sed unde 
-                            </p>
-                            <div className="bt">
-                                <a href="gallery.html">Подробнее</a>
+                    {
+                        news.length !== 0 ? (
+                            news.map(item => (
+                                <div className="cards" key={item.id}>
+                                    <div className="imgcard">
+                                        <img src={item.image} alt="" />
+                                    </div>
+                                    <div className="cards-body">
+                                        <p>{parsedDate(item.created)}</p>
+                                        <p>
+                                            {item.title}
+                                        </p>
+                                        <div className="bt">
+                                            <a href="gallery.html">Подробнее</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))
+                        ) : (
+                            <div className="spinner-border" style={{width: '3rem', height: '3rem'}} role="status">
+                                <span className="visually-hidden">Загрузка...</span>
                             </div>
-                        </div>
-                    </div>
-                    <div className="cards">
-                        <div className="imgcard">
-                            <img src={News2} alt="" />
-                        </div>
-                        <div className="cards-body">
-                            <p>21 февраля 2021</p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolor magni incidunt quas quod omnis quam sed unde 
-                            </p>
-                            <div className="bt">
-                                <a href="gallery.html">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="cards">
-                        <div className="imgcard">
-                            <img src={News3} alt="" />
-                        </div>
-                        <div className="cards-body">
-                            <p>21 февраля 2021</p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolor magni incidunt quas quod omnis quam sed unde 
-                            </p>
-                            <div className="bt">
-                                <a href="gallery.html">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="cards">
-                        <div className="imgcard">
-                            <img src={News1} alt="" />
-                        </div>
-                        <div className="cards-body">
-                            <p>21 февраля 2021</p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolor magni incidunt quas quod omnis quam sed unde 
-                            </p>
-                            <div className="bt">
-                                <a href="gallery.html">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
+                        )
+                    }
                 </div>
             </div>
         </main>

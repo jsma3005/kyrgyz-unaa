@@ -18,7 +18,10 @@ const Footer = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/about">
+                            <Link to={{
+                                pathname: '/about',
+                                hash: '#nav'
+                            }}>
                                 О нас
                             </Link>
                         </li>
