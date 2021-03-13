@@ -31,7 +31,8 @@ header nav li a{
     }
 }
 .active{
-    color: #03e9f4 !important;
+    color: #3e536f !important;
+    font-weight: bold;
 }
 .dropdown-menu{
     background: none !important;
@@ -43,7 +44,21 @@ header nav li a{
 }
 .dropdown-item{
     padding:7px !important;
+    color: #efefef
 }
+.dropdown-toggle{
+    background: none !important;
+    border: none !important;
+    color: #efefef !important;
+}
+
+
+
+.rightSideNavigation{
+    display: flex;
+    align-items: center;
+}
+
 
 
 nav a{
@@ -59,10 +74,10 @@ nav a{
 }
 .nav-link:hover{
     transition-duration: 0.3s;
-    color: #03e9f4 !important;
+    color: #3e536f !important;
 }
 .containerFluid{
-    width: 86% !important;
+    width: 100% !important;
     margin: 0 auto;
     display: flex;
 }
@@ -139,7 +154,7 @@ nav a{
 @media (max-width:1401px){
     .navbar-nav .nav-item{
         margin: 0 5px;
-        font-size: 16px !important;
+        font-size: 18px !important;
     }
 
 }
@@ -163,7 +178,7 @@ nav a{
 
 @media (max-width:1199px){
     .containerFluid{
-        width: 86% !important;
+        width: 100% !important;
         margin: 0 auto;
         display: flex;
     }
@@ -240,6 +255,8 @@ nav a{
 
 
  
+
+
 
 
 

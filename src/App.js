@@ -5,12 +5,14 @@ import Footer from './components/Footer/Footer';
 import Main from './pages/Main';
 import About from './pages/About';
 import Certificate from './pages/ Сertificate';
-import Products from './pages/Products';
+// import Products from './pages/Products';
 import News from './pages/News';
 import Contacts from './pages/Contacts';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import SingleNews from './pages/News/SingleNews';
+import NewProducts from './pages/NewProducts';
+
 
 
 const App = () =>{
@@ -20,12 +22,13 @@ const App = () =>{
                 <NavBar />
                 <Switch>
                     <Route path="/" exact component={Main} />
-                    <Route path="/products" component={Products} />
+                    {/* <Route path="/products" component={Products} /> */}
+                    <Route path="/products" component={NewProducts} />
                     <Route path="/about" component={About} />
-                    <Route path="/news" component={News} />
+                    <Route path="/news" exact component={News} />
+                    <Route path="/news/:id" component={SingleNews} />
                     <Route path="/certificate" component={Certificate} />
                     <Route path="/contacts" component={Contacts} />
-                    <Route path="/single" component={SingleNews} />
                     <Redirect to="/" />
                 </Switch>
                 <Footer />

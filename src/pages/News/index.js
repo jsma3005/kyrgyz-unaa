@@ -1,49 +1,73 @@
 import './News.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getAllNewsAction } from '../../redux/actions/newsActions';
 import { parsedDate } from '../../utils/dateParser';
+import Slider from 'react-slick';
+import { Link } from 'react-router-dom';
+import Zoom from 'react-reveal/Zoom';
+import Fade from 'react-reveal/Fade';
 
 const News = () => {
+    const [limit, setLimit] = useState(6);
     const dispatch = useDispatch();
     const {data} = useSelector(s => s.news);
+    const {selectedLang: {newsPage}} = useSelector(s => s.langs);
 
-    console.log(data);
-
-    const news = data !== null ? data.results : [];
+    const news = data !== null ? data.results : null;
 
     useEffect(() => {
-        dispatch(getAllNewsAction(1, ))
-    }, [])
+        dispatch(getAllNewsAction({
+            limit,
+            offset: 0
+        }))
+    }, [dispatch, limit])
+
+    const moreNews = e => {
+        e.preventDefault();
+        if(data.count >= limit){
+            setLimit(prev => prev + 3);
+        }
+    }
+
+    const settings = {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+
+    };
 
     return (
         <main>
-            <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
-                <div className="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div className="carousel-inner">
-                    <div className="carousel-item  backs">
-                        <h1>Новости завода</h1>
+            {
+                (news !== null && news.length > 2) ? (
+                    <div>
+                        <Slider {...settings}>
+                            {
+                                news.slice(0, 3).map(item => (
+                                    <div key={item.id} >
+                                        <div className="slider-item" style={{background: `url('${item.image}') top center / cover`, width: '100%', height: '80vh'}}>
+                                            <h1>{item.title}</h1>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </Slider>
                     </div>
-                    <div className="carousel-item back3 active">
-                        <h1>Новости</h1>
+                ) : (
+                    <div className="news_top_banner">
+                        <div className="news_top_banner_content">
+                            <Zoom bottom>
+                                <h1 className='text-center'>{newsPage.title}</h1>
+                            </Zoom>
+                        </div>
                     </div>
-                    <div className="carousel-item back3 ">
-                        <h1>Новости</h1>
-                    </div>
-                </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
-                </button>
-            </div>
+                )
+            }
 
 
 
@@ -52,39 +76,52 @@ const News = () => {
 
             <div className="news">
                 <div className="generalNew">
-                    <h1>Все новости</h1>
+                    <Fade left>
+                        <h1>{newsPage.all}</h1>
+                    </Fade>
                 </div>
             </div>
             <div className="centerNew">
                 <div className="inlineNews">
                     {
-                        news.length !== 0 ? (
+                        (news !== null && news.length !== 0 ) ? (
                             news.map(item => (
-                                <div className="cards" key={item.id}>
-                                    <div className="imgcard">
-                                        {/* <img src={item.image} alt="" /> */}
-                                        <div className='news_image' style={{background: `url('${item.image}') center / cover`}}>
-
+                                <Zoom key={item.id} bottom>
+                                    <div className="cards">
+                                        <div className="imgcard">
+                                            <div className='news_image' style={{background: `url('${item.image}') center / cover`}}>
+                                            </div>
+                                        </div>
+                                        <div className="cards-body">
+                                            <p>{parsedDate(item.created)}</p>
+                                            <p>
+                                                {item.title}
+                                            </p>
+                                            <div className="bt">
+                                                <Link to={`/news/${item.id}`}>{newsPage.more}</Link>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="cards-body">
-                                        <p>{parsedDate(item.created)}</p>
-                                        <p>
-                                            {item.title}
-                                        </p>
-                                        <div className="bt">
-                                            <a href="gallery.html">Подробнее</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                </Zoom>
                             ))
-                        ) : (
+                        ) : news === null ? (
                             <div className="spinner-border" style={{width: '3rem', height: '3rem'}} role="status">
                                 <span className="visually-hidden">Загрузка...</span>
                             </div>
+                        ) : (
+                            <h1 className='text-center'>Новостей нет!</h1>
                         )
                     }
                 </div>
+                {
+                    data?.count > 6 ? (
+                        <div className="more text-center mt-5">
+                            <button onClick={moreNews} disabled={data?.count >= limit ? false : true} className="btn btn-danger btn-lg">{newsPage.moreBtn}</button>
+                        </div>
+                    ) : (
+                        null
+                    )
+                }
             </div>
         </main>
     )

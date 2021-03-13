@@ -1,62 +1,45 @@
-import { Link } from 'react-router-dom';
+import moment from 'moment';
+import { useSelector } from 'react-redux';
+import { NavHashLink } from 'react-router-hash-link'
+import LiveContacts from '../LiveContacts/LiveContacts';
 import './Footer.css';
 
 const Footer = () => {
+    const currentYear = moment().format('YYYY');
+    const {selectedLang: {footer}} = useSelector(s => s.langs)
+
     return (
         <footer>
+            <LiveContacts />
             <div className="centerFooter">
                 <div className="foot">
                     <ol>
-                        <li>
-                            <Link to="/" className="bolds">
-                                Главная
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/products">
-                                Продукция
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to={{
-                                pathname: '/about',
-                                hash: '#nav'
-                            }}>
-                                О нас
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/news">
-                                Новости
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/certificate">
-                                Сертификаты
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/contacts">
-                                Контакты
-                            </Link>
-                        </li>
+                        {
+                            footer.links.map(({id, title, link}) => (
+                                <li key={id}>
+                                    <NavHashLink activeClassName='bolds' to={link}>
+                                        {title}
+                                    </NavHashLink>
+                                </li>
+                            ))
+                        }
                     </ol>
                     <hr />
                     <ol>
                         <li>
                             <b>
-                                О нас
+                                {footer.about.title}
                             </b>
                         </li>
                         <li>
-                            <a href="about.html">
-                                Описание
-                            </a>
+                            <NavHashLink activeClassName="bolds" to="/about/#about-content">
+                                {footer.about.desc}
+                            </NavHashLink>
                         </li>
                         <li>
-                            <a href="about.html">
-                                Смотреть видео
-                            </a>
+                            <NavHashLink activeClassName='bolds' to="/about/#video">
+                                {footer.about.video}
+                            </NavHashLink>
                         </li>
                     </ol>
 
@@ -65,44 +48,44 @@ const Footer = () => {
                     <ol>
                         <li>
                             <b>
-                                Продукция
+                                {footer.products.title}
                             </b>
                         </li>
                         <li>
-                            <a href="products.html">
-                                Турбины
-                            </a>
+                            <NavHashLink to="/products/#product-categories" activeClassName='bolds'>
+                                {footer.products.all}
+                            </NavHashLink>
                         </li>
                     </ol>
                     <hr />
                     <ol>
                         <li>
                             <b>
-                                Новости
+                                {footer.news.title}
                             </b>
                         </li>
                         <li>
-                            <Link to="/news">
-                                Новости завода
-                            </Link>
+                            <NavHashLink activeClassName='bolds' to="/news/#nav">
+                            {footer.news.all}
+                            </NavHashLink>
                         </li>
                     </ol>
                     <hr />
                     <ol>
                         <li>
                             <b>
-                                Контакты
+                            {footer.contacts.title}
                             </b>
                         </li>
                         <li>
-                            <a href="contacts.html">
-                                Адрес
-                            </a>
+                            <NavHashLink activeClassName='bolds' to="/contacts/#map-content">
+                            {footer.contacts.address}
+                            </NavHashLink>
                         </li>
                         <li>
-                            <a href="contacts.html">
-                                Форма обратной связи
-                            </a>
+                            <NavHashLink activeClassName='bolds' to="/contacts/#contacts-us">
+                            {footer.contacts.form}
+                            </NavHashLink>
                         </li>
                     
                     </ol>
@@ -110,11 +93,11 @@ const Footer = () => {
                     <ol>
                         <li>
                             <b>
-                                Горячая линия
+                                {footer.hotline}
                             </b>
                         </li>
                         <li>
-                            <a href="tel:+996 (990) 980 980">
+                            <a href="tel:996(990)980980">
                                 <i className="fa fa-phone"></i>
                                 +996 (990) 980 980
                             </a>
@@ -125,27 +108,27 @@ const Footer = () => {
                 <div className="polit">
                     <ul className="osoo">
                         <li>
-                            ОсОО Кыргыз Унаа Курулуш © 2021
+                            {footer.footTitle} {currentYear}
                         </li>
                     </ul>
                     <ul className="icons">
                         <li>
-                            <a href="">
+                            <a href="/">
                                 <i className="fab fa-facebook-f"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="/">
                                 <i className="fab fa-youtube"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="/">
                                 <i className="fab fa-instagram"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="/">
                                 <i className="fab fa-whatsapp"></i>
                             </a>
                         </li>

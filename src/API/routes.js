@@ -1,3 +1,10 @@
 export const newsRoutes = {
-    getAll: 'news/api/news'
+    getAll: 'api/news',
+    single: 'api/news'
+}
+
+export const productsRoutes = {
+    getAll: 'api/product/product/',
+    single: 'api/product/product/',
+    category: 'api/product/category/'
 }

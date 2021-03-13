@@ -20,7 +20,7 @@
     font-weight: 300;
 }
 .foot a:hover{
-    color:  #03e9f4;
+    color:  #3e536f;
 }
 .foot ol li{
     margin: 10px 0;
@@ -48,8 +48,8 @@
     color: black;
     text-decoration: none;
 }
-.polit .icons a:hover{
-    color:  #03e9f4;
+.polit .icons a i:hover{
+    color:rgba(0,0,0,.8) !important;
 }
 .bolds{
     font-weight: bolder !important;
@@ -152,13 +152,13 @@
         color: gainsboro;
     }
     .foot ol li b{
-        color: #03e9f4;
+        color: #3e536f;
     }
     .polit ul{
         color: white;
     }
     .bolds{
-        color: #03e9f4 !important;
+        color: #3e536f !important;
     }
     .icons{
         display: flex;
@@ -172,7 +172,7 @@
         color: white;
     }
     .polit .icons li a:hover{
-        color: #03e9f4;
+        color: #3e536f;
     }
 }
 
@@ -202,3 +202,17 @@
     }
 }
 
+/* Social net */
+
+.fa-facebook-f{
+    color: #3b5998;
+}
+.fa-youtube{
+    color: #c4302b;
+}
+.fa-whatsapp{
+    color: #43d854;
+}
+.fa-instagram{
+    color: #dd2a7b;
+}

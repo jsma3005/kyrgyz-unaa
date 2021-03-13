@@ -3,90 +3,111 @@ import Certificate1 from '../../assets/Сертификаты/kyrgyzunaacertific
 import Certificate2 from '../../assets/Сертификаты/Торгово-промышленная-палата-2048x1456.png';
 import Certificate3 from '../../assets/Сертификаты/смарт-счетчик-scaled.png';
 import Certificate4 from '../../assets/Сертификаты/ТРАНСФОРМАТОР-1-scaled.png';
+import { useSelector } from 'react-redux';
+import Zoom from 'react-reveal/Zoom';
+import Fade from 'react-reveal/Fade';
+
 
 const Certificate = () => {
+    const {selectedLang: {certificate}} = useSelector(s => s.langs);
+
     return(
         <main>
             <section className="sertBanner">
                 <div className="textS">
-                    <h1>Сертификаты</h1>
+                    <Zoom bottom>
+                        <h1>{certificate.title}</h1>
+                    </Zoom>
                 </div>
             </section>
-
 
 
             {/* <!-- Сертификаты кыргыз унаа --> */}
 
 
-
-
             <section>
                 <div className="paperBlock">
                     <div className="firstInline">
-                        <div className="left">
-                            <h3>Сертификат <i className='certificateColor'>"Кыргыз Унаа Курулуш"</i></h3>
-                            <p className="aw">
-                                <i className=" fa fa-award"></i>
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis error nam cupiditate unde accusamus beatae. Repudiandae tempore quidem corporis. Obcaecati sit laboriosam laborum aliquam magnam expedita officia aliquid amet eveniet?
+                        <Fade left>
+                            <div className="left">
+                                <h3>{certificate.certificate1.title} <b className='certificateColor'>{certificate.certificate1.type}</b></h3>
+                                <p className="aw">
+                                    <i className=" fa fa-award"></i>
+                                </p>
+                                <p>
+                                    {certificate.certificate1.content1}
 
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos rem repellat ducimus id, veniam asperiores maiores unde perspiciatis cum voluptate fugit! Praesentium tenetur totam perferendis quos fugit commodi nam voluptatibus.
-                            </p>
-                        </div>
-                        <div className="right">
-                            <img src={Certificate1} alt="" />
-                        </div>
+                                    {certificate.certificate1.content2}
+                                </p>
+                            </div>
+                        </Fade>
+                        <Fade right>
+                            <div className="right">
+                                <img src={Certificate1} alt="" />
+                            </div>
+                        </Fade>
                     </div>
 
                     <div className="secondInline">
-                        <div className="right">
-                            <img src={Certificate2} alt="" />
-                        </div>
-                        <div className="left">
-                            <h3>Сертификат <i className='certificateColor'>"Кыргыз Унаа Курулуш"</i></h3>
-                            <p className="aw">
-                                <i className=" fa fa-award"></i>
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis error nam cupiditate unde accusamus beatae. Repudiandae tempore quidem corporis. Obcaecati sit laboriosam laborum aliquam magnam expedita officia aliquid amet eveniet?
+                        <Fade left>
+                            <div className="right">
+                                <img src={Certificate2} alt="" />
+                            </div>
+                        </Fade>
+                        <Fade right>
+                            <div className="left">
+                                <h3>{certificate.certificate2.title} <b className='certificateColor'>{certificate.certificate2.type}</b></h3>
+                                <p className="aw">
+                                    <i className=" fa fa-award"></i>
+                                </p>
+                                <p>
+                                    {certificate.certificate2.content1}
 
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos rem repellat ducimus id, veniam asperiores maiores unde perspiciatis cum voluptate fugit! Praesentium tenetur totam perferendis quos fugit commodi nam voluptatibus.
-                            </p>
-                        </div>
+                                    {certificate.certificate2.content2}
+                                </p>
+                            </div>
+                        </Fade>
                     
                     </div>
                     <div className="threeInline">
-                        <div className="left">
-                            <h3>Сертификат <i className='certificateColor'>"Кыргыз Унаа Курулуш"</i></h3>
-                            <p className="aw">
-                                <i className=" fa fa-award"></i>
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis error nam cupiditate unde accusamus beatae. Repudiandae tempore quidem corporis. Obcaecati sit laboriosam laborum aliquam magnam expedita officia aliquid amet eveniet?
+                        <Fade left>
+                            <div className="left">
+                                <h3>{certificate.certificate3.title} <b className='certificateColor'>{certificate.certificate3.type}</b></h3>
+                                <p className="aw">
+                                    <i className=" fa fa-award"></i>
+                                </p>
+                                <p>
+                                    {certificate.certificate3.content1}
 
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos rem repellat ducimus id, veniam asperiores maiores unde perspiciatis cum voluptate fugit! Praesentium tenetur totam perferendis quos fugit commodi nam voluptatibus.
-                            </p>
-                        </div>
-                        <div className="right">
-                            <img src={Certificate3} alt="" />
-                        </div>
+                                    {certificate.certificate3.content2}
+                                </p>
+                            </div>
+                        </Fade>
+                        <Fade right>
+                            <div className="right">
+                                <img src={Certificate3} alt="" />
+                            </div>
+                        </Fade>
                     </div>
                     <div className="secondInline">
-                        <div className="right">
-                            <img src={Certificate4} alt="" />
-                        </div>
-                        <div className="left">
-                            <h3>Сертификат <i className='certificateColor'>"Кыргыз Унаа Курулуш"</i></h3>
-                            <p className="aw">
-                                <i className=" fa fa-award"></i>
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis error nam cupiditate unde accusamus beatae. Repudiandae tempore quidem corporis. Obcaecati sit laboriosam laborum aliquam magnam expedita officia aliquid amet eveniet?
+                        <Fade left>
+                            <div className="right">
+                                <img src={Certificate4} alt="" />
+                            </div>
+                        </Fade>
+                        <Fade right>
+                            <div className="left">
+                                <h3>{certificate.certificate4.title} <b className='certificateColor'>{certificate.certificate4.type}</b></h3>
+                                <p className="aw">
+                                    <i className=" fa fa-award"></i>
+                                </p>
+                                <p>
+                                    {certificate.certificate4.content1}
 
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos rem repellat ducimus id, veniam asperiores maiores unde perspiciatis cum voluptate fugit! Praesentium tenetur totam perferendis quos fugit commodi nam voluptatibus.
-                            </p>
-                        </div>
+                                    {certificate.certificate4.content2}
+                                </p>
+                            </div>
+                        </Fade>
                     </div>
                 </div>
             </section>

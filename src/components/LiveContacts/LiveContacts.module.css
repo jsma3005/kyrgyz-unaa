@@ -1,0 +1,10 @@
+.root{
+    position: fixed;
+    top: 80%;
+    left: 90%;
+    z-index: 999 !important;
+}
+.root a{
+    color: #43d854;
+    font-size: 3rem;
+}

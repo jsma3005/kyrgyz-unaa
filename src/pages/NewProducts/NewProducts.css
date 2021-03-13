@@ -1,0 +1,326 @@
+/* Start banner */
+.banner{
+    background: url('../../assets/Продукции/product.jpg') center / cover;
+    width: 100%;
+    position: relative;
+    
+    height: 80vh;
+}
+.banner::before{
+    content: '';
+    width: 100%;
+    height: 80vh;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    z-index: 1;
+}
+.mai{
+    height: 80%;
+    display: flex;
+    align-items: center;
+}
+.banner .mai{
+    padding-left: 200px;
+    color:white !important;
+    position: relative;
+    z-index:5 !important;
+}
+.bannerT h1{
+    font-size: 70px;
+}
+.banner nav{
+    z-index: 5 !important;
+}
+
+/* End Banner */
+
+
+/* Select category */
+
+.select_category{
+	width: 60%;
+	margin: 0 auto;
+	padding: 2rem;
+}
+
+/* End Select category */
+
+
+/* Products */
+
+.products_bg{
+	background-color: #ffffff;
+	background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+}
+
+.product_container{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 3rem;
+}
+
+.product_item{
+	width: 30%;
+	height: 100%;
+	box-shadow: 0px 0px 15px rgba(0,0,0,.6);
+	overflow: hidden !important;
+}
+
+.product_title{
+	background-color: #3e536f;
+	font-size: 1.5rem;
+	padding: 1rem;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product_title p{
+	margin-bottom: 0;
+	text-align: center;
+	color: #efefef;
+}
+.product_img{
+	width: 100%;
+	height: 250px;
+}
+
+.product_info{
+	background: #efefef;
+	padding: 1.5rem;
+	text-align: center;
+}
+
+.product_info a{
+	padding: .8rem;
+	color: #efefef;
+	background-color: #3e536f;
+	text-decoration: none;
+}
+.product_info a:hover{
+  transition:.3s;
+  background-color: #546882
+}
+
+
+/* Pagination */
+.product_more_btn{
+  background-color: #3e536f !important;
+  border-color: #3e536f;
+  color: #efefef
+}
+
+
+/* End Products */
+
+
+
+/* Form */
+
+  
+  /* АВТОРИЗАЦИЯ */
+  
+  
+  
+  
+  
+  
+.center{
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+  height: 100vh;
+}
+  
+.contBack{
+  background: url('../../assets/Продукции/formBg.jpg') left / cover;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.contBack::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+.login-box {
+  width:600px;
+  height: 450px;
+  padding: 40px;
+  position: relative;
+  border-radius: 10px;
+}
+.login-box::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;  
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.5);
+}
+.login-box h2 {
+  position: relative;
+  margin: 0px;
+  padding: 0;
+  color: #efefef;
+  text-align: center;
+}
+  
+.login-box .user-box {
+  position: relative;
+}
+  
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #efefef;
+  margin-bottom:15px;
+  border: none;
+  border-bottom: 1px solid #efefef;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box textarea {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #efefef;
+  margin-bottom:15px;
+  border: none;
+  border-bottom: 1px solid #efefef;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #efefef;
+  pointer-events: none;
+  transition: .5s;
+}
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #efefef;
+  font-size: 16px;
+}
+  
+  
+.login-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #3e536f;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 5px;
+    letter-spacing: 4px;
+    border: 1px solid #3e536f;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+}
+  
+.login-box a:hover {
+  background: #3e536f;
+  color: #efefef;
+  border-radius: 5px;
+}
+  
+.login-box a span {
+    position: absolute;
+    display: block;
+}
+  
+  .login-box a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #3e536f);
+  }
+  
+  .login-box a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #3e536f);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+  }
+.login-box a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #3e536f);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+.login-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #3e536f);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+  
+
+/* End Form */
+
+
+/* Media */
+
+
+
+/* Banner */
+
+
+@media (max-width:624px){
+  .mai{
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .banner .mai{
+    padding-left: 0 !important;
+    color:white !important;
+    position: relative;
+    z-index:5 !important;
+  }
+  .bannerT h1{
+    font-size: 50px;
+  }
+}
+
+@media (max-width:320px){
+    .bannerT h1{
+      font-size: 40px;
+    }
+}
+
+

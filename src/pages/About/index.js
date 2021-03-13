@@ -1,77 +1,94 @@
 import './About.css';
 import Buss from '../../assets/О нас/buss.png';
+import Item5 from '../../assets/О нас/galleryItem5.jpg';
+import { useSelector } from 'react-redux';
+import Zoom from 'react-reveal/Zoom';
+import Fade from 'react-reveal/Fade';
+
 
 const About = () => {
+    const {selectedLang: {about}} = useSelector(s => s.langs);
+
     return (
         <>
             <div className="LightBanner">
                 <div className="bannerCenterAbout">
                     <div className="bannerAbout">
-                        <h1>Кыргыз Унаа Курулуш</h1>
-                        <div className="firstAbout" >
-                            <h1>Первый машиностроительный завод <br /> в Кыргызской Республике</h1>
-                        </div>   
+                        <Zoom left>
+                            <div className="firstAbout" >
+                                <h1>{about.title} <br /> {about.title2}</h1>
+                            </div>   
+                        </Zoom>
                     </div>
                 </div>
             </div>
             
             {/* <!-- БЛОКИ О нас цель - миссия  --> */}
 
-            <main>
+            <main id='about-content'>
                 <div className="onasCenter">
                     <div className="textO">
-                        <h1><span >O</span> НАС</h1>
-                        <p className="TextWithDate">Кыргыз Унаа Курулуш  </p>
+                        <Zoom left>
+                            <h1>{about.subTitle}</h1>
+                            <p className="TextWithDate">{about.brand}  </p>
+                        </Zoom>
                         <div className="text">
                             <span>
-                                «КЫРГЫЗ УНАА КУРУЛУШ» - промышленное предприятие в г.Ош, проектирующее и производящее энергетическое и машиностроительное оборудование любой сложности.
-                                Машиностроительный завод «Кыргыз Унаа Курулуш» начал свою деятельность в 2018 году и существенно расширяет сферу своих деловых интересов. 
-                                На первом этапе общая площадь производственных зданий составило более 18 тысяч квадратных метров. Завод оснащается современными станками европейского и японского качества для максимальной автоматизации промышленного процесса. 
-                                «Кыргыз Унаа Курулуш» призвано стать ведущим предприятием в Кыргызской Республике, которое проектирует и производит энергетическое и машиностроительное оборудование любой сложности.
-                                Сильная экономика и развитая промышленность – это основа благополучия страны сейчас и наших детей в будущем. С имеющимся колоссальным человеческим капиталом в стране, молодыми, смелыми, умными и прогрессивными гражданами, мы, действуя сообща, обязательно добьемся успехов и уже в скором будущем. Наша философия – работать сегодня во благо будущего поколения!
+                                <Fade left>
+                                    {about.content1}
+                                </Fade>
                                 <br />
+                                
+                                <Fade right>
+                                    <img className='w-100 mt-5 mb-5 rounded' src={Item5} alt="Kyrgyz Unaa Kurulush" />
+                                </Fade>
+
                                 <br />
-                                <p className="border-left">Производственные цеха машиностроительного завода имеют удобное географическое расположение. Завод расположен в южной части г.Ош, в 6 километров от городской мэрии и 18 километров от Ошского международного аэропорта, до г.Худжант (Таджикистан) - 300 км, до г.Ташкен (Узбекистан) - 420 километров, до пограничного пункта Иркеш-Там - 260 километров.  Включает в себя 16000 м² производственных помещений, 2000 м² складских помещений. Предприятие оснащено оборудованием из Японии и Европы, соответствующее международным стандартам качества.
-                                Необходимый объем инвестиций для полного ввода завода в эксплуатацию составляет 150 миллионов долларов, из них 20 миллионов долларов собственных средств уже направлены на первый этап строительства помещений для завода, на приобретение первоначально необходимого оборудования, а также на строительство подстанции по передаче и распределению электроэнергии мощностью 63 мВт для обеспечения бесперебойной работы завода.</p>
+                                <Fade left>
+                                    <p className="border-left">{about.content2}</p>
+                                </Fade>
                                 <br /><br />     
                             </span>
-                            <p>
-                                В течение 2018-2020 г.г шли строительные и пуско-наладочные работы, с середины 2020г начался выпуск первой продукции – электрогенераторв и электрощитов. Вторым этапом производства станет запуск линий производства малотоннажных грузовиков и сборка электромобилей. 
-                                Для работы предприятия планируется привлечь высококлассных специалистов из Кыргызстана, Турции и России. Введение в эксплуатацию машиностроительного завода в г.Ош важно не только из-за предполагаемого пополнения местного бюджета, но и вклад в снижение уровня безработицы, внутренней и внешней миграции. Общая численность персонала завода составит более 300 человек.
-                            </p>
+                            <Fade right>
+                                <p>
+                                    {about.content3}
+                                </p>
+                            </Fade>
                         </div>
                     </div>
                 </div>
-
 
                 {/* <!-- Видео о нас --> */}
 
 
 
-                <div className="vidos">
-                    <div>
-                        <iframe width="700" height="415" src="https://www.youtube.com/embed/m6n2YnPd8nA" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                <Fade left>
+                    <div id="video" className="vidos">
+                        <div>
+                            <iframe title="Video" width="700" height="415" src="https://www.youtube.com/embed/m6n2YnPd8nA" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                        </div>
                     </div>
-                </div>
+                </Fade>
 
                 {/* <!-- Миссия блок --> */}
 
-                <div className="centerMission">
-                    <div className="inlineMission">
-                        <div className="textM" >
-                            <h1>Ми<span>сс</span>ия</h1>
-                            <div className="Lorem">
-                                <p>Бережливое производство, непрерывный контроль качества, ставка на экологичность технологических процессов, уважительное отношение к партнерам и сотрудникам для завоевания и удержания лидирующей позиции и деловой репутации на рынке.
-                                </p>
+                <Fade right>
+                    <div className="centerMission">
+                        <div className="inlineMission">
+                            <div className="textM" >
+                                <h1>{about.missionTitle}</h1>
+                                <div className="Lorem">
+                                    <p>{about.missionContent}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="buss">
-                            <div className="hiddImg">
-                                <img src={Buss} alt="" />
+                            <div className="buss">
+                                <div className="hiddImg">
+                                    <img src={Buss} alt="" />
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </Fade>
 
                 {/* <!-- Цель блок --> */}
 
@@ -79,14 +96,16 @@ const About = () => {
                     <div className="inlineGoal">
                         <div className="leftImg">
                             <div className="scale " >
-                            <div className="goalText">
-                                <div>
-                                    <h1>Ц<span >E</span>ЛЬ</h1>
-                                    <p>
-                                        Вклад в развитие промышленности Кыргызской Республики, а также получение прибыли от предпринимательской деятельности
-                                    </p>
+                                <div className="goalText">
+                                    <Zoom bottom>
+                                        <div>
+                                            <h1>{about.goal}</h1>
+                                            <p>
+                                                {about.goalContent}
+                                            </p>
+                                        </div>
+                                    </Zoom>
                                 </div>
-                            </div>
                             </div>
                         </div>
                     </div>
@@ -95,76 +114,30 @@ const About = () => {
                 {/* <!-- Ценности - качество --> */}
 
                 <div className="cenT">
-                    <h1>Це<span >нн</span>ости</h1>
+                    <h1>{about.values}</h1>
                 </div>
 
                 <div className="cardBlockCenter">
                     <div className="cardBlockInline">
-                        <div className="cardBlockCennoct">
-                            <div className="content">
-                                <i className="fab fa-apper"></i>
-                                <div>
-                                    <h1>    
-                                        Качество
-                                    </h1>
-                                    <p>
-                                        Весь процесс производства ведется по немецким технологиям и стандартам качества, что обеспечивает высокое качество и технический уровень выпускаемой продукции.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="cardBlockCennoct">
-                            <div className="content">
-                                <i className="fab fa-accusoft"></i>
-                                <div>
-                                    <h1>    
-                                        Гибкость
-                                    </h1>
-                                    <p>
-                                        Благодаря собственному конструкторскому бюро мы можем производить не только типовую продукцию, но и нестандартные изделия по индивидуальному заказу.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="cardBlockCennoct">
-                            <div className="content">
-                                <i className="fa fa-user"></i>
-                                <div>
-                                    <h1>    
-                                        Клиенты
-                                    </h1>
-                                    <p>
-                                    Наша главнаяцель – удовлетворение нужд наших клентов. Любые желания будут учтены и воплощены в жизнь.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="cardBlockCennoct">
-                            <div className="content">
-                                <i className="fa fa-user-shield"></i>
-                                <div>
-                                    <h1>    
-                                        Безопасность
-                                    </h1>
-                                    <p>
-                                    Безопасный и комфортный труд – это основа нашей деятельности. При этом не забываем и об экологии окружающей среды.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="cardBlockCennoct">
-                            <div className="content">
-                                <i className="fa fa-users"></i>
-                                <div>
-                                    <h1>    
-                                        Командная работа
-                                    </h1>
-                                    <p>
-                                    Наша команда работает, как единый организм, для достижения поставленных целей и высот.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        {
+                            about.valuesData.map(({id, iconCls, title, content}) => (
+                                <Zoom bottom key={id}>
+                                    <div className="cardBlockCennoct">
+                                        <div className="content">
+                                            <i className={iconCls}></i>
+                                            <div>
+                                                <h1>    
+                                                    {title}
+                                                </h1>
+                                                <p>
+                                                    {content}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Zoom>
+                            ))
+                        }
                     </div>
                 </div>
             </main>
