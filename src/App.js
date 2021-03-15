@@ -22,7 +22,6 @@ const App = () =>{
                 <NavBar />
                 <Switch>
                     <Route path="/" exact component={Main} />
-                    {/* <Route path="/products" component={Products} /> */}
                     <Route path="/products" component={NewProducts} />
                     <Route path="/about" component={About} />
                     <Route path="/news" exact component={News} />

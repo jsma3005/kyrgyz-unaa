@@ -4,7 +4,6 @@ import GenImg from '../../assets/Главная/gen.png';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllNewsAction } from '../../redux/actions/newsActions';
-import { Link } from 'react-router-dom';
 import { parsedDate } from '../../utils/dateParser';
 import { NavHashLink } from 'react-router-hash-link'
 import Zoom from 'react-reveal/Zoom';
