@@ -550,10 +550,14 @@
 
 @media (max-width:794px){
     .vidos iframe{
-        width: 100%;
+        width: 95%;
     }
 }
-
+@media (max-width:450px){
+    .vidos iframe{
+        width: 98%;
+    }
+}
 
 
 

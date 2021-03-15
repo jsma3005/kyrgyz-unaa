@@ -28,6 +28,13 @@ const NavBar = () => {
         languageState === 'RU' ? dispatch(enLangAction()) : dispatch(ruLangAction());
     }, [dispatch])
 
+    const closeCollase = e => {
+        e.preventDefault();
+
+        const collapse = document.querySelector('#navbarSupportedContent');
+        collapse.classList.remove('show');
+    }
+
 
     return (
         <Bounce top>
@@ -44,7 +51,7 @@ const NavBar = () => {
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                 {
                                     navbar.links.map(({id, title, link}) => (
-                                        <li key={id} className="nav-item">
+                                        <li key={id} onClick={closeCollase} className="nav-item">
                                             <NavLink exact className="nav-link" aria-current="page" to={link}>{title}</NavLink>
                                         </li>
                                     ))
