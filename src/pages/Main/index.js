@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllNewsAction } from '../../redux/actions/newsActions';
 import { Link } from 'react-router-dom';
 import { parsedDate } from '../../utils/dateParser';
+import { NavHashLink } from 'react-router-hash-link'
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
 import Flip from 'react-reveal/Flip';
@@ -60,7 +61,7 @@ const Main = () => {
                                     <div className="mt-5">
                                         <Zoom bottom>
                                             <h4>{main.productionTitle}</h4>
-                                            <Link to="/products" >{main.knowMoreBtn}</Link>
+                                            <NavHashLink to="/products/#nav" >{main.knowMoreBtn}</NavHashLink>
                                         </Zoom>
                                     </div>
                                 </div>
@@ -70,7 +71,7 @@ const Main = () => {
                                     <div className="mt-5">
                                         <Zoom left>
                                             <h4>{main.newsTitle}</h4>
-                                            <Link to="/news">{main.knowMoreBtn}</Link>
+                                            <NavHashLink to="/news/#nav">{main.knowMoreBtn}</NavHashLink>
                                         </Zoom>
                                     </div>
                                 </div>
@@ -80,7 +81,7 @@ const Main = () => {
                                     <div className="mt-5">
                                         <Zoom right>
                                             <h4>{main.contactsTitle}</h4>
-                                            <Link to="/contacts">{main.knowMoreBtn}</Link>
+                                            <NavHashLink to="/contacts/#nav">{main.knowMoreBtn}</NavHashLink>
                                         </Zoom>
                                     </div>
                                 </div>  
@@ -101,9 +102,9 @@ const Main = () => {
                             </div>
                             <div className="mt-4 bl righ">
                                 <Fade right>
-                                    <Link to="/about">
+                                    <NavHashLink to="/about/#nav">
                                         {main.knowMoreBtn}
-                                    </Link>
+                                    </NavHashLink>
                                 </Fade>
                             </div>
                         </div>
@@ -167,7 +168,7 @@ const Main = () => {
                         <h1>{main.lastNews}</h1>
                     </Fade>
                     <Fade right>
-                        <p><Link to="/news">{main.allNews}</Link> <i className=" fa fa-arrow-right"></i></p>
+                        <p><NavHashLink to="/news/#nav">{main.allNews}</NavHashLink> <i className=" fa fa-arrow-right"></i></p>
                     </Fade>
                 </div>
             </div>
@@ -189,7 +190,7 @@ const Main = () => {
                                                 {item.title}
                                             </p>
                                             <div className="bt">
-                                                <Link to={`/news/${item.id}`}>{main.moreBtn}</Link>
+                                                <NavHashLink to={`/news/${item.id}/#nav`}>{main.moreBtn}</NavHashLink>
                                             </div>
                                         </div>
                                     </div>

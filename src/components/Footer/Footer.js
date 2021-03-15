@@ -3,6 +3,37 @@ import { useSelector } from 'react-redux';
 import { NavHashLink } from 'react-router-hash-link'
 import LiveContacts from '../LiveContacts/LiveContacts';
 import './Footer.css';
+import Facebook from '../../assets/Footer/facebook.svg';
+import Youtube from '../../assets/Footer/youtube.svg';
+import Instagram from '../../assets/Footer/instagram.svg';
+import Whatsapp from '../../assets/Footer/whatsapp.svg';
+
+const socialNetwork = [
+    {
+        id: 1,
+        title: 'Facebook',
+        img: Facebook,
+        link: 'https://www.facebook.com/kyrgyzunaakurulush/'
+    },
+    {
+        id: 2,
+        title: 'YouTube',
+        img: Youtube,
+        link: '/'
+    },
+    {
+        id: 3,
+        title: 'Instagram',
+        img: Instagram,
+        link: 'https://www.instagram.com/kyrgyzuna.kg/'
+    },
+    {
+        id: 4,
+        title: 'WhatsApp',
+        img: Whatsapp,
+        link: 'https://api.whatsapp.com/send?phone=996990980980'
+    }
+]
 
 const Footer = () => {
     const currentYear = moment().format('YYYY');
@@ -112,26 +143,15 @@ const Footer = () => {
                         </li>
                     </ul>
                     <ul className="icons">
-                        <li>
-                            <a href="/">
-                                <i className="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/">
-                                <i className="fab fa-youtube"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/">
-                                <i className="fab fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/">
-                                <i className="fab fa-whatsapp"></i>
-                            </a>
-                        </li>
+                        {
+                            socialNetwork.map(({id, title, img, link}) => (
+                                <li key={id}>
+                                    <a title={title} href={link}>
+                                        <img className='social-icons' src={img} alt={title} />
+                                    </a>
+                                </li>
+                            ))
+                        }
                     </ul>
                 </div>
             </div>

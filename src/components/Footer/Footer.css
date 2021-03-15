@@ -204,15 +204,12 @@
 
 /* Social net */
 
-.fa-facebook-f{
-    color: #3b5998;
+.social-icons{
+    width: 50px;
 }
-.fa-youtube{
-    color: #c4302b;
-}
-.fa-whatsapp{
-    color: #43d854;
-}
-.fa-instagram{
-    color: #dd2a7b;
+
+@media (max-width: 500px){
+    .social-icons{
+        width: 40px;
+    }
 }
