@@ -19,7 +19,9 @@ const NewProducts = () => {
             category: categoryValid,
             limit
         }));
-        dispatch(getAllCategoriesAction());
+        dispatch(getAllCategoriesAction({
+            limit: 50
+        }));
     }, [dispatch, category, limit, categoryValid])
 
     const cuttedStr = str => {

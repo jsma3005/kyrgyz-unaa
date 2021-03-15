@@ -199,7 +199,7 @@ export const ruLangData = {
             {
                 id: 1,
                 title: 'Главная',
-                link: '/contacts/#map-content'
+                link: '/#nav'
             },
             {
                 id: 2,
@@ -451,7 +451,7 @@ export const enLangData = {
             {
                 id: 1,
                 title: 'Main',
-                link: '/contacts/#map-content'
+                link: '/#nav'
             },
             {
                 id: 2,
