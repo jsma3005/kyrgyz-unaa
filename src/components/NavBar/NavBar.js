@@ -15,12 +15,16 @@ const NavBar = () => {
         e.preventDefault();
         dispatch(enLangAction());
         localStorage.setItem('kyrgyzUnaaLang', 'RU')
+
+        closeCollase(e);
     }
 
     const handleChangeLangRu = e => {
         e.preventDefault();
         dispatch(ruLangAction());
         localStorage.setItem('kyrgyzUnaaLang', 'EN')
+
+        closeCollase(e);
     }
 
     useEffect(() => {
