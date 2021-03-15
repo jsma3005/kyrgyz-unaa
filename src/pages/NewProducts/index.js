@@ -10,7 +10,7 @@ const NewProducts = () => {
     const [category, setCategory] = useState('all');
     const dispatch = useDispatch();
     const {data} = useSelector(s => s.products);
-    const {selectedLang: {products}} = useSelector(s => s.langs);
+    const {selectedLang: {products}, selectedLangSlug} = useSelector(s => s.langs);
     const {categories, categorySuccess} = useSelector(s => s.categories);
     const categoryValid = category === 'all' ? null : category
 
@@ -51,7 +51,7 @@ const NewProducts = () => {
         }
     }
 
-    console.log(data);
+    console.log(categories);
     
     return (
         <>
@@ -74,14 +74,25 @@ const NewProducts = () => {
                                     <select value={category} onChange={e => setCategory(e.target.value)} className="form-select form-select-lg" aria-label=".form-select-lg example">
                                         {
                                             categories?.results.length > 0 ? (
-                                                <>
-                                                    <option value='all' defaultValue>Все продукты</option>
-                                                    {
-                                                        categories?.results.map(({id, name}) => (
-                                                            <option key={id} value={id}>{name}</option>
-                                                        ))
-                                                    }
-                                                </>
+                                                selectedLangSlug === 'RU' ? (
+                                                    <>
+                                                        <option value='all' defaultValue>Все продукты</option>
+                                                        {
+                                                            categories?.results.map(({id, name}) => (
+                                                                <option key={id} value={id}>{name}</option>
+                                                            ))
+                                                        }
+                                                    </>
+                                                ) : ( 
+                                                    <>
+                                                        <option value='all' defaultValue>All products</option>
+                                                        {
+                                                            categories?.results.map(({id, name_en}) => (
+                                                                <option key={id} value={id}>{name_en}</option>
+                                                            ))
+                                                        }
+                                                    </>
+                                                )
                                             ) : (
                                                 <option>Нет категорий</option>
                                             )
@@ -103,19 +114,38 @@ const NewProducts = () => {
                         (data !== null && data?.results.length !== 0) ? (
                             data?.results.map(item => (
                                 <Zoom bottom key={item.id}>
-                                    <div className="product_item mb-5">
-                                        <div className="product_title">
-                                            <p title={item.title}>{cuttedStr(item.title)}</p>
-                                        </div>
-                                        <div className="product_img" style={{background: `url('${item.image}') center / cover no-repeat`}}>
-                                        </div>
-                                        <div className="product_info">
-                                            <p>{cuttedDescription(item.description)}</p>
-                                            <div className="text-center pt-3">
-                                                <a href={`/products/${item.id}`}>Подробнее...</a>
+                                    {
+                                        selectedLangSlug === 'RU' ? (
+                                            <div className="product_item mb-5">
+                                                <div className="product_title">
+                                                    <p title={item.title}>{cuttedStr(item.title)}</p>
+                                                </div>
+                                                <div className="product_img" style={{background: `url('${item.image}') center / cover no-repeat`}}>
+                                                </div>
+                                                <div className="product_info">
+                                                    <p>{cuttedDescription(item.description)}</p>
+                                                    <div className="text-center pt-3">
+                                                        <a href={`/products/${item.id}`}>Подробнее...</a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                        ) : (
+                                            <div className="product_item mb-5">
+                                                <div className="product_title">
+                                                    <p title={item.title_en}>{cuttedStr(item.title_en)}</p>
+                                                </div>
+                                                <div className="product_img" style={{background: `url('${item.image}') center / cover no-repeat`}}>
+                                                </div>
+                                                <div className="product_info">
+                                                    <p>{cuttedDescription(item.description_en)}</p>
+                                                    <div className="text-center pt-3">
+                                                        <a href={`/products/${item.id}`}>Подробнее...</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+                                    
                                 </Zoom>
                             ))
                         ) : (data === null) ? (

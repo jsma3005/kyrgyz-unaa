@@ -8,7 +8,7 @@ const SingleNews = () => {
     const dispatch = useDispatch();
     const {data, newsSuccess} = useSelector(s => s.singleNews);
     const {id} = useParams();
-    const {selectedLang: {newsPage}} = useSelector(s => s.langs);
+    const {selectedLang: {newsPage}, selectedLangSlug} = useSelector(s => s.langs);
 
     useEffect(() => {
         dispatch(getSingleNewsAction(id))
@@ -28,15 +28,30 @@ const SingleNews = () => {
             {
                 newsSuccess ? (
                     <>
-                        <div className={cls.card + " card"}>
-                        <h3 className="text-center mt-2">{data.title}</h3>
-                            <div className={"card-body"}>
-                                <div className="text-center">
-                                    <img alt={data.title} className={cls.image} src={data.image} />
+                        {
+                            selectedLangSlug === 'RU' ? (
+                                <div className={cls.card + " card"}>
+                                    <h3 className="text-center mt-2">{data.title}</h3>
+                                    <div className={"card-body"}>
+                                        <div className="text-center">
+                                            <img alt={data.title} className={cls.image} src={data.image} />
+                                        </div>
+                                        <p>{data.description}</p>
+                                    </div>
                                 </div>
-                                <p>{data.description}</p>
-                            </div>
-                        </div>
+                            ) : (
+                                <div className={cls.card + " card"}>
+                                    <h3 className="text-center mt-2">{data.title_en}</h3>
+                                    <div className={"card-body"}>
+                                        <div className="text-center">
+                                            <img alt={data.title} className={cls.image} src={data.image} />
+                                        </div>
+                                        <p>{data.description_en}</p>
+                                    </div>
+                                </div>
+                            )
+                        }
+                        
                     </>
                 ) : newsSuccess === null ? (
                     <div className='text-center mt-5'>

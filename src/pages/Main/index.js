@@ -13,14 +13,15 @@ import Flip from 'react-reveal/Flip';
 const Main = () => {
     const dispatch = useDispatch();
     const { data } = useSelector(s => s.news);
-    const {selectedLang: {main}} = useSelector(s => s.langs);
+    const {selectedLang: {main}, selectedLangSlug} = useSelector(s => s.langs);
 
     useEffect(() => {
         dispatch(getAllNewsAction())
     }, [dispatch])
 
-
     const news = data !== null ? data.results.slice(0, 3) : null;
+
+    console.log(data);
 
     return (
         <main id="mainPage">
@@ -177,22 +178,44 @@ const Main = () => {
                         (news !== null && news.length !== 0) ? (
                             news.map(item => (
                                 <Zoom bottom key={item.id}>
-                                    <div className="cards">
-                                        <div className="imgcard">
-                                            <div className='news_image' style={{background: `url('${item.image}') center / cover`}}>
+                                    {
+                                        selectedLangSlug === 'RU' ? (
+                                            <div className="cards">
+                                                <div className="imgcard">
+                                                    <div className='news_image' style={{background: `url('${item.image}') center / cover`}}>
 
+                                                    </div>
+                                                </div>
+                                                <div className="cards-body">
+                                                    <p>{parsedDate(item.created)}</p>
+                                                    <p>
+                                                        {item.title}
+                                                    </p>
+                                                    <div className="bt">
+                                                        <NavHashLink to={`/news/${item.id}/#nav`}>{main.moreBtn}</NavHashLink>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="cards-body">
-                                            <p>{parsedDate(item.created)}</p>
-                                            <p>
-                                                {item.title}
-                                            </p>
-                                            <div className="bt">
-                                                <NavHashLink to={`/news/${item.id}/#nav`}>{main.moreBtn}</NavHashLink>
+                                        ) : (
+                                            <div className="cards">
+                                                <div className="imgcard">
+                                                    <div className='news_image' style={{background: `url('${item.image}') center / cover`}}>
+
+                                                    </div>
+                                                </div>
+                                                <div className="cards-body">
+                                                    <p>{parsedDate(item.created)}</p>
+                                                    <p>
+                                                        {item.title_en}
+                                                    </p>
+                                                    <div className="bt">
+                                                        <NavHashLink to={`/news/${item.id}/#nav`}>{main.moreBtn}</NavHashLink>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                        )
+                                    }
+                                    
                                 </Zoom>
                             ))
                         ) : news === null ? (

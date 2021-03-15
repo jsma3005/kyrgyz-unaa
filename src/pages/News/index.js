@@ -12,7 +12,7 @@ const News = () => {
     const [limit, setLimit] = useState(6);
     const dispatch = useDispatch();
     const {data} = useSelector(s => s.news);
-    const {selectedLang: {newsPage}} = useSelector(s => s.langs);
+    const {selectedLang: {newsPage}, selectedLangSlug} = useSelector(s => s.langs);
 
     const news = data !== null ? data.results : null;
 
@@ -87,21 +87,42 @@ const News = () => {
                         (news !== null && news.length !== 0 ) ? (
                             news.map(item => (
                                 <Zoom key={item.id} bottom>
-                                    <div className="cards">
-                                        <div className="imgcard">
-                                            <div className='news_image' style={{background: `url('${item.image}') center / cover`}}>
+                                    {
+                                        selectedLangSlug === 'RU' ? (
+                                            <div className="cards">
+                                                <div className="imgcard">
+                                                    <div className='news_image' style={{background: `url('${item.image}') center / cover`}}>
+                                                    </div>
+                                                </div>
+                                                <div className="cards-body">
+                                                    <p>{parsedDate(item.created)}</p>
+                                                    <p>
+                                                        {item.title}
+                                                    </p>
+                                                    <div className="bt">
+                                                        <Link to={`/news/${item.id}`}>{newsPage.more}</Link>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="cards-body">
-                                            <p>{parsedDate(item.created)}</p>
-                                            <p>
-                                                {item.title}
-                                            </p>
-                                            <div className="bt">
-                                                <Link to={`/news/${item.id}`}>{newsPage.more}</Link>
+                                        ) : (
+                                            <div className="cards">
+                                                <div className="imgcard">
+                                                    <div className='news_image' style={{background: `url('${item.image}') center / cover`}}>
+                                                    </div>
+                                                </div>
+                                                <div className="cards-body">
+                                                    <p>{parsedDate(item.created)}</p>
+                                                    <p>
+                                                        {item.title_en}
+                                                    </p>
+                                                    <div className="bt">
+                                                        <Link to={`/news/${item.id}`}>{newsPage.more}</Link>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                        )
+                                    }
+                                    
                                 </Zoom>
                             ))
                         ) : news === null ? (
