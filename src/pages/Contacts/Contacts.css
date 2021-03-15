@@ -140,6 +140,9 @@
 
   /* КАРТА И АДРЕСА */
 
+  .contacts_ul{
+    list-style: none !important;
+  }
 
 
 

@@ -111,7 +111,7 @@ const Contacts = () => {
                                         <h3>{contacts.address.title}</h3>
                                     </div>
                                     <hr />
-                                    <ul>
+                                    <ul className="contacts_ul">
                                         <li>
                                             <a href="#map">
                                                 {contacts.address.content}
