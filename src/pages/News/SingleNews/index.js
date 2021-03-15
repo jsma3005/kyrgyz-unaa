@@ -56,11 +56,11 @@ const SingleNews = () => {
                 ) : newsSuccess === null ? (
                     <div className='text-center mt-5'>
                         <div className="spinner-border text-center" style={{width: '3rem', height: '3rem'}} role="status">
-                            <span className="visually-hidden">Загрузка...</span>
+                            <span className="visually-hidden">{newsPage.loading}</span>
                         </div> 
                     </div>
                 ) : (
-                    <h1 className='text-center mt-5'>Страница не найдена!</h1>
+                    <h1 className='text-center mt-5'>{newsPage.errorPage}</h1>
                 )
             }
             

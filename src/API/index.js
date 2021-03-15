@@ -1,5 +1,5 @@
 import { API } from './api';
-import { newsRoutes, productsRoutes } from './routes';
+import { newsRoutes, productsRoutes, formRoute } from './routes';
 
 // News
 export const getAllNews = params => API.get({
@@ -23,4 +23,10 @@ export const getAllProducts = params => API.get({
 export const getAllCategory = params => API.get({
     url: productsRoutes.category,
     params
+})
+
+// Post a form
+export const postNewForm = postData => API.post({
+    url: formRoute,
+    data: postData
 })

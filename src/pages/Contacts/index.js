@@ -2,9 +2,43 @@ import { useSelector } from 'react-redux';
 import './Contacts.css';
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
+import { useState } from 'react';
+import { postNewForm } from '../../API/index';
 
 const Contacts = () => {
     const {selectedLang: {contacts}} = useSelector(s => s.langs);
+    const [fullname, setFullname] = useState('');
+    const [number, setNumber] = useState('');
+    const [email, setEmail] = useState('');
+    const [comment, setComment] = useState();
+    const [formLoading, setFormLoading] = useState(false);
+
+    const formSubmit = e => {
+        e.preventDefault();
+        setFormLoading(true);
+        if(fullname !== '' && number !== '' && email !== ''){
+            postNewForm({
+                fullname,
+                number,
+                email,
+                comment
+            }).then(res =>{
+                if(Math.floor(res.status / 100) === 2){
+                    console.log(res);
+                    alert('Отправлено успешно!');
+                    setFormLoading(false);
+                    setFullname('');
+                    setNumber('');
+                    setEmail('');
+                    setComment('');
+                }
+            }).catch(() => {
+                alert('Что-то пошло не так!')
+            })
+        }else{
+            alert('Все поля должны быть заполнены!')
+        }
+    }
     
 
     return (
@@ -115,30 +149,30 @@ const Contacts = () => {
                         <Zoom bottom>
                             <div className="login-box">
                                 <h2>{contacts.form.title}</h2>
-                                <form>
+                                <form onSubmit={formSubmit}>
                                     <div className="user-box">
-                                        <input type="text" name="" required="" />
+                                        <input value={fullname} onChange={e => setFullname(e.target.value)} type="text" name="" required="" />
                                         <label>{contacts.form.fullName}</label>
                                     </div>
                                     <div className="user-box">
-                                        <input type="password" name="" required="" />
+                                        <input value={number} onChange={e => setNumber(e.target.value)} type="text" name="" required="" />
                                         <label>{contacts.form.contacts}</label>
                                     </div>
                                     <div className="user-box">
-                                        <input type="password" name="" required="" />
+                                        <input value={email} onChange={e => setEmail(e.target.value)} type="text" name="" required="" />
                                         <label>{contacts.form.email}</label>
                                     </div>
                                     <div className="user-box">
-                                        <textarea placeholder={contacts.form.comment}></textarea>
+                                        <textarea value={comment} onChange={e => setComment(e.target.value)} placeholder={contacts.form.comment}></textarea>
                                         <label></label>
                                     </div>
-                                    <a href="/">
+                                    <button disabled={formLoading} type="submit">
                                         <span></span>
                                         <span></span>
                                         <span></span>
                                         <span></span>
                                         {contacts.form.submit}
-                                    </a>
+                                    </button>
                                 </form>
                             </div>
                         </Zoom>

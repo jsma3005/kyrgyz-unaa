@@ -29,7 +29,13 @@ export const ruLangData = {
             email: 'Электронная почта',
             comment: 'Комментарий',
             submit: 'Отправить'
-        }
+        },
+        allProducts: 'Все продукты',
+        isReady: 'Готовые продукты',
+        inProgress: 'В стадии разработки',
+        noCategories: 'Нет категорий',
+        loading: 'Загрузка...',
+        emptyProducts: 'Продукция пуста!'
     },
     about: {
         title: 'Первый машиностроительный завод',
@@ -81,7 +87,10 @@ export const ruLangData = {
         title: 'Наши новости',
         all: 'Все новости',
         more: 'Подробнее',
-        moreBtn: 'Еще новости'
+        moreBtn: 'Еще новости',
+        emptyNews: 'Новостей нет!',
+        loading: 'Загружается...',
+        errorPage: 'Страница не найдена!'
     },
     certificate: {
         title: 'Сертификаты',
@@ -281,7 +290,13 @@ export const enLangData = {
             email: 'Email',
             comment: 'Comment',
             submit: 'Submit'
-        }
+        },
+        allProducts: 'All products',
+        isReady: 'Finished products',
+        inProgress: 'Under development',
+        noCategories: 'No categories',
+        loading: 'Loading...',
+        emptyProducts: 'Product is empty!'
     },
     about: {
         title: 'The first machine-building plant',
@@ -333,7 +348,10 @@ export const enLangData = {
         title: 'Our news',
         all: 'All news',
         more: 'More...',
-        moreBtn: 'More news'
+        moreBtn: 'More news',
+        emptyNews: 'No news!',
+        loading: 'Loading...',
+        errorPage: 'Page not found!'
     },
     certificate: {
         title: 'Certificates',

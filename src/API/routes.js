@@ -8,3 +8,5 @@ export const productsRoutes = {
     single: 'api/product/product/',
     category: 'api/product/category/'
 }
+
+export const formRoute = 'api/form/'

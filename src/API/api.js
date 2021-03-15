@@ -11,4 +11,12 @@ export const API = {
             baseURL,
             ...rest
         }),
+    post: ({url, data, ...rest}) =>
+        Axios({
+            method: 'POST',
+            url,
+            data,
+            baseURL,
+            ...rest
+        }),
 }

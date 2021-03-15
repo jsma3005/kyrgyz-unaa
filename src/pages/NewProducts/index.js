@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProductsAction, getAllCategoriesAction } from '../../redux/actions/productsActions';
+import { postNewForm } from '../../API/index'
 import './NewProducts.css';
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
@@ -13,16 +14,23 @@ const NewProducts = () => {
     const {selectedLang: {products}, selectedLangSlug} = useSelector(s => s.langs);
     const {categories, categorySuccess} = useSelector(s => s.categories);
     const categoryValid = category === 'all' ? null : category
+    const [productState, setProductState] = useState('true');
+    const [fullname, setFullname] = useState('');
+    const [number, setNumber] = useState('');
+    const [email, setEmail] = useState('');
+    const [comment, setComment] = useState();
+    const [formLoading, setFormLoading] = useState(false);
 
     useEffect(() => {
         dispatch(getAllProductsAction({
             category: categoryValid,
-            limit
+            limit,
+            product_state: productState
         }));
         dispatch(getAllCategoriesAction({
             limit: 50
         }));
-    }, [dispatch, category, limit, categoryValid])
+    }, [dispatch, category, limit, categoryValid, productState])
 
     const cuttedStr = str => {
         const splittedStr = str.split(' ');
@@ -34,6 +42,34 @@ const NewProducts = () => {
         }
     }
 
+    const formSubmit = e => {
+        e.preventDefault();
+        setFormLoading(true);
+        if(fullname !== '' && number !== '' && email !== ''){
+            postNewForm({
+                fullname,
+                number,
+                email,
+                comment
+            }).then(res =>{
+                if(Math.floor(res.status / 100) === 2){
+                    console.log(res);
+                    alert('Отправлено успешно!');
+                    setFormLoading(false);
+                    setFullname('');
+                    setNumber('');
+                    setEmail('');
+                    setComment('');
+                }
+            }).catch(() => {
+                alert('Что-то пошло не так!')
+            })
+        }else{
+            alert('Все поля должны быть заполнены!')
+        }
+    }
+
+
     const cuttedDescription = str => {
         const splittedStr = str.split('');
         if(splittedStr.length > 100){
@@ -44,15 +80,17 @@ const NewProducts = () => {
         }
     }
 
-    const moreNews = e => {
+    const moreProducts = e => {
         e.preventDefault();
         if(data.count >= limit){
             setLimit(prev => prev + 3);
         }
     }
 
-    console.log(categories);
-    
+    const changeProductState = e => {
+        setProductState(e.target.value);
+    }
+
     return (
         <>
             <div className="banner">    
@@ -76,7 +114,7 @@ const NewProducts = () => {
                                             categories?.results.length > 0 ? (
                                                 selectedLangSlug === 'RU' ? (
                                                     <>
-                                                        <option value='all' defaultValue>Все продукты</option>
+                                                        <option value='all' defaultValue>{products.allProducts}</option>
                                                         {
                                                             categories?.results.map(({id, name}) => (
                                                                 <option key={id} value={id}>{name}</option>
@@ -85,7 +123,7 @@ const NewProducts = () => {
                                                     </>
                                                 ) : ( 
                                                     <>
-                                                        <option value='all' defaultValue>All products</option>
+                                                        <option value='all' defaultValue>{products.allProducts}</option>
                                                         {
                                                             categories?.results.map(({id, name_en}) => (
                                                                 <option key={id} value={id}>{name_en}</option>
@@ -94,7 +132,7 @@ const NewProducts = () => {
                                                     </>
                                                 )
                                             ) : (
-                                                <option>Нет категорий</option>
+                                                <option>{products.noCategories}</option>
                                             )
                                         }
                                     </select>
@@ -102,9 +140,9 @@ const NewProducts = () => {
                             ) : null
                         }
                         <div className='col-lg-6'>
-                            <select className="form-select form-select-lg" aria-label=".form-select-lg example">
-                                <option defaultValue>Готовые продукции</option>
-                                <option>В стадии разработки</option>
+                            <select onChange={changeProductState} value={productState} className="form-select form-select-lg" aria-label=".form-select-lg example">
+                                <option value='true' defaultValue>{products.isReady}</option>
+                                <option value='false'>{products.inProgress}</option>
                             </select>
                         </div>
                     </div>
@@ -139,7 +177,7 @@ const NewProducts = () => {
                                                 <div className="product_info">
                                                     <p>{cuttedDescription(item.description_en)}</p>
                                                     <div className="text-center pt-3">
-                                                        <a href={`/products/${item.id}`}>Подробнее...</a>
+                                                        <a href={`/products/${item.id}`}>More...</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -150,11 +188,11 @@ const NewProducts = () => {
                             ))
                         ) : (data === null) ? (
                             <div className="spinner-border m-auto" style={{width: '3rem', height: '3rem'}} role="status">
-                                <span className="visually-hidden">Загрузка...</span>
+                                <span className="visually-hidden">{products.loading}</span>
                             </div>
                         )
                         : (
-                            <h1 className='text-center m-auto'>Продукция пуста!</h1>
+                            <h1 className='text-center m-auto'>{products.emptyProducts}</h1>
                         )
                     }
                 </div>
@@ -162,7 +200,7 @@ const NewProducts = () => {
                 {
                     data?.count > 6 ? (
                         <div className="more text-center pb-5">
-                            <button onClick={moreNews} disabled={data?.count >= limit ? false : true} className="btn btn-lg product_more_btn">{products.moreProductsBtn}</button>
+                            <button onClick={moreProducts} disabled={data?.count >= limit ? false : true} className="btn btn-lg product_more_btn">{products.moreProductsBtn}</button>
                         </div>
                     ) : (
                         null
@@ -176,30 +214,30 @@ const NewProducts = () => {
                     <Fade bottom>
                         <div className="login-box">
                             <h2>{products.form.title}</h2>
-                            <form>
+                            <form onSubmit={formSubmit}>
                                 <div className="user-box">
-                                    <input type="text" name="" required="" />
+                                    <input value={fullname} onChange={e => setFullname(e.target.value)} type="text" name="" required="" />
                                     <label>{products.form.fullName}</label>
                                 </div>
                                 <div className="user-box">
-                                    <input type="password" name="" required="" />
+                                    <input value={number} onChange={e => setNumber(e.target.value)} type="text" name="" required="" />
                                     <label>{products.form.contacts}</label>
                                 </div>
                                 <div className="user-box">
-                                    <input type="password" name="" required="" />
+                                    <input value={email} onChange={e => setEmail(e.target.value)} type="text" name="" required="" />
                                     <label>{products.form.email}</label>
                                 </div>
                                 <div className="user-box">
-                                    <textarea placeholder={products.form.comment}></textarea>
+                                    <textarea value={comment} onChange={e => setComment(e.target.value)} placeholder={products.form.comment}></textarea>
                                     <label></label>
                                 </div>
-                                <a href="/">
+                                <button disabled={formLoading} type="submit">
                                     <span></span>
                                     <span></span>
                                     <span></span>
                                     <span></span>
                                     {products.form.submit}
-                                </a>
+                                </button>
                             </form>
                         </div>
                     </Fade>

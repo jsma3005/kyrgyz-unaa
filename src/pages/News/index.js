@@ -127,10 +127,10 @@ const News = () => {
                             ))
                         ) : news === null ? (
                             <div className="spinner-border" style={{width: '3rem', height: '3rem'}} role="status">
-                                <span className="visually-hidden">Загрузка...</span>
+                                <span className="visually-hidden">{newsPage.loading}</span>
                             </div>
                         ) : (
-                            <h1 className='text-center'>Новостей нет!</h1>
+                            <h1 className='text-center'>{newsPage.emptyNews}</h1>
                         )
                     }
                 </div>
