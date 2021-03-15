@@ -268,3 +268,13 @@
     }
     
     
+
+    @media (max-width:329px){
+        .cards{
+            transition: 0.5s;
+            box-shadow: 0 5px 20px gainsboro;
+            width: 320px !important;
+            height: 540px;
+            position: relative;
+        }
+    }

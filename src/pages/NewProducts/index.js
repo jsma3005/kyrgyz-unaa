@@ -50,7 +50,7 @@ const NewProducts = () => {
     }
 
     console.log(data);
-
+    
     return (
         <>
             <div className="banner">    

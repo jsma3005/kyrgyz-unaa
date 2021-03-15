@@ -60,7 +60,7 @@ const About = () => {
 
                 {/* <!-- Видео о нас --> */}
 
-
+                
 
                 <Fade left>
                     <div id="video" className="vidos">

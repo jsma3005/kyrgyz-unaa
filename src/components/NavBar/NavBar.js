@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { enLangAction, ruLangAction } from '../../redux/actions/languageAction';
 import { HashLink } from 'react-router-hash-link'
 import { useEffect } from 'react';
-import LiveContacts from '../LiveContacts/LiveContacts';
+// import LiveContacts from '../LiveContacts/LiveContacts';
 import Bounce from 'react-reveal/Bounce';
 
 const NavBar = () => {
