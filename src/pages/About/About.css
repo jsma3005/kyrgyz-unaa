@@ -333,16 +333,14 @@
 
 /* BANNER */
 
-@media (max-width:1314px){
-    .bannerCenterAbout{
-        width: 90%;
-        z-index: 4;
-        position: relative;
-        margin:  auto;
-        height: 80%;
-        display: flex;
-        align-items: flex-end;
-    }
+.bannerCenterAbout{
+    width: 90%;
+    z-index: 4;
+    position: relative;
+    margin:  auto;
+    height: 80%;
+    display: flex;
+    align-items: flex-end;
 }
 
 

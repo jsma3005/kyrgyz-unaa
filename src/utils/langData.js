@@ -266,7 +266,7 @@ export const enLangData = {
         devicesTitle1: 'Milling machines',
         devicesTitle2: 'Carousel machines',
         devicesTitle3: 'Milling machines',
-        lastNews: 'Last news',
+        lastNews: 'Latest news',
         allNews: 'All news',
         loading: 'Loading',
         emptyNews: 'No news!'
