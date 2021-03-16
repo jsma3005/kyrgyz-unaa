@@ -19,6 +19,12 @@ export const getAllProducts = params => API.get({
     params
 })
 
+// Single product
+
+export const getSingleProducts = id => API.get({
+    url: `${productsRoutes.single}${id}`,
+})
+
 // Categories
 export const getAllCategory = params => API.get({
     url: productsRoutes.category,

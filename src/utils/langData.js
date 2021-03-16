@@ -37,6 +37,14 @@ export const ruLangData = {
         loading: 'Загрузка...',
         emptyProducts: 'Продукция пуста!'
     },
+    singleProducts: {
+        title: 'Продукция',
+        productDesc: 'Описание продукта',
+        appArea: 'Область применения',
+        techData: 'Технические данные',
+        loading: 'Загрузка...',
+        errorPage: 'Страница не найдена!'
+    },
     about: {
         title: 'Первый машиностроительный завод',
         title2: 'в Кыргызской Республике', 
@@ -297,6 +305,14 @@ export const enLangData = {
         noCategories: 'No categories',
         loading: 'Loading...',
         emptyProducts: 'Product is empty!'
+    },
+    singleProducts: {
+        title: 'Products',
+        productDesc: 'Product description',
+        appArea: 'Application area',
+        techData: 'Technical data',
+        loading: 'Loading...',
+        errorPage: 'Page not found!'
     },
     about: {
         title: 'The first machine-building plant',

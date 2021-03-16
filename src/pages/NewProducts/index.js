@@ -5,6 +5,8 @@ import { postNewForm } from '../../API/index'
 import './NewProducts.css';
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
+import { HashLink } from 'react-router-hash-link'
+
 
 const NewProducts = () => {
     const [limit, setLimit] = useState(6);
@@ -163,7 +165,7 @@ const NewProducts = () => {
                                                 <div className="product_info">
                                                     <p>{cuttedDescription(item.description)}</p>
                                                     <div className="text-center pt-3">
-                                                        <a href={`/products/${item.id}`}>Подробнее...</a>
+                                                        <HashLink to={`/products/${item.id}/#nav`}>Подробнее...</HashLink>
                                                     </div>
                                                 </div>
                                             </div>
@@ -177,7 +179,7 @@ const NewProducts = () => {
                                                 <div className="product_info">
                                                     <p>{cuttedDescription(item.description_en)}</p>
                                                     <div className="text-center pt-3">
-                                                        <a href={`/products/${item.id}`}>More...</a>
+                                                        <HashLink to={`/products/${item.id}/#nav`}>More...</HashLink>
                                                     </div>
                                                 </div>
                                             </div>

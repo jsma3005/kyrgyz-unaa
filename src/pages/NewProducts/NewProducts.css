@@ -91,6 +91,10 @@
 	background: #efefef;
 	padding: 1.5rem;
 	text-align: center;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product_info a{
@@ -302,6 +306,13 @@
   .product_img{
     width: 100%;
     height: 200px;
+  }
+  .product_info{
+    padding: 1rem;
+    justify-content: space-around;
+  }
+  .product_container{
+    padding: 3rem 2rem;
   }
   
 }
