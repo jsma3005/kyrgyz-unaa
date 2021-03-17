@@ -67,29 +67,33 @@ const SingleProduct = () => {
                                                 }</div>
                                             </div>
                                         </div>
-                                        <div className="accordion-item">
-                                            <h2 className="accordion-header" id="flush-headingThree">
-                                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                                    {singleProducts.techData}
-                                                </button>
-                                            </h2>
-                                            <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                                <div className="accordion-body">
-                                                    <table className="table table-hover">
-                                                        <tbody>
-                                                            {
-                                                                data?.technical_data.map(item => (
-                                                                    <tr className='text' key={item.id}>
-                                                                        <td><strong>{item.key}</strong></td>
-                                                                        <td style={{textAlign: 'right'}}>{item.value}</td>
-                                                                    </tr>
-                                                                ))
-                                                            }
-                                                        </tbody>
-                                                    </table>
+                                        {
+                                           data?.technical_data.length !== 0 ? (
+                                            <div className="accordion-item">
+                                                <h2 className="accordion-header" id="flush-headingThree">
+                                                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                                        {singleProducts.techData}
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                                    <div className="accordion-body">
+                                                        <table className="table table-hover">
+                                                            <tbody>
+                                                                {
+                                                                    data?.technical_data.map(item => (
+                                                                        <tr className='text' key={item.id}>
+                                                                            <td><strong>{item.key}</strong></td>
+                                                                            <td style={{textAlign: 'right'}}>{item.value}</td>
+                                                                        </tr>
+                                                                    ))
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                           ) : null
+                                        }
                                     </div>
                                 </div>
                             ) : (
@@ -121,29 +125,33 @@ const SingleProduct = () => {
                                                 }</div>
                                             </div>
                                         </div>
-                                        <div className="accordion-item">
-                                            <h2 className="accordion-header" id="flush-headingThree">
-                                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                                    {singleProducts.techData}
-                                                </button>
-                                            </h2>
-                                            <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                                <div className="accordion-body">
-                                                    <table className="table table-hover">
-                                                        <tbody>
-                                                            {
-                                                                data?.technical_data.map(({id, key_en, value_en}) => (
-                                                                    <tr className='text' key={id}>
-                                                                        <td><strong>{key_en}</strong></td>
-                                                                        <td style={{textAlign: 'right'}}>{value_en}</td>
-                                                                    </tr>
-                                                                ))
-                                                            }
-                                                        </tbody>
-                                                    </table>
+                                        {
+                                           data?.technical_data.length !== 0 ? (
+                                            <div className="accordion-item">
+                                                <h2 className="accordion-header" id="flush-headingThree">
+                                                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                                        {singleProducts.techData}
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                                    <div className="accordion-body">
+                                                        <table className="table table-hover">
+                                                            <tbody>
+                                                                {
+                                                                    data?.technical_data.map(item => (
+                                                                        <tr className='text' key={item.id}>
+                                                                            <td><strong>{item.key_en}</strong></td>
+                                                                            <td style={{textAlign: 'right'}}>{item.value_en}</td>
+                                                                        </tr>
+                                                                    ))
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                           ) : null
+                                        }
                                     </div>
                                 </div>
                             )
