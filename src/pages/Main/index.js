@@ -121,7 +121,7 @@ const Main = () => {
 
 
     
-            <div className="oborud">
+            {/* <div className="oborud">
                 <Flip bottom>
                     <h1>{main.devices}</h1>
                 </Flip>
@@ -153,7 +153,7 @@ const Main = () => {
                         </div>
                     </Zoom>
                 </div>
-            </div>
+            </div> */}
 
 
 
