@@ -71,7 +71,7 @@ const Footer = () => {
 
                     <hr />
 
-                    <ol>
+                    {/* <ol>
                         <li>
                             <b>
                                 {footer.products.title}
@@ -82,7 +82,7 @@ const Footer = () => {
                                 {footer.products.all}
                             </NavHashLink>
                         </li>
-                    </ol>
+                    </ol> */}
                     <hr />
                     <ol>
                         <li>
