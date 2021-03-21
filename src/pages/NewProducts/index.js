@@ -6,17 +6,18 @@ import './NewProducts.css';
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
 import { HashLink } from 'react-router-hash-link'
+import { NavLink, useParams } from 'react-router-dom';
 
 
 const NewProducts = () => {
     const [limit, setLimit] = useState(6);
-    const [category, setCategory] = useState('all');
     const dispatch = useDispatch();
     const {data} = useSelector(s => s.products);
     const {selectedLang: {products}, selectedLangSlug} = useSelector(s => s.langs);
     const {categories, categorySuccess} = useSelector(s => s.categories);
-    const categoryValid = category === 'all' ? null : category
-    const [productState, setProductState] = useState('true');
+    // router
+    const {categoryId} = useParams();
+    // Form inputs
     const [fullname, setFullname] = useState('');
     const [number, setNumber] = useState('');
     const [email, setEmail] = useState('');
@@ -25,20 +26,29 @@ const NewProducts = () => {
 
     useEffect(() => {
         dispatch(getAllProductsAction({
-            category: categoryValid,
-            limit,
-            product_state: productState
+            category: categoryId,
+            limit
         }));
         dispatch(getAllCategoriesAction({
             limit: 50
         }));
-    }, [dispatch, category, limit, categoryValid, productState])
+    }, [dispatch, limit, categoryId]);
 
     const cuttedStr = str => {
         const splittedStr = str.split(' ');
         if(splittedStr.length > 4){
             const slicedStr = splittedStr.slice(0, 4);
             return slicedStr.join(' ');
+        }else{
+            return str;
+        }
+    }
+
+    const cuttedDescription = str => {
+        const splittedStr = str.split('');
+        if(splittedStr.length > 100){
+            const slicedStr = splittedStr.slice(0, 100);
+            return slicedStr.join('') + "...";
         }else{
             return str;
         }
@@ -55,7 +65,6 @@ const NewProducts = () => {
                 comment
             }).then(res =>{
                 if(Math.floor(res.status / 100) === 2){
-                    console.log(res);
                     alert('Отправлено успешно!');
                     setFormLoading(false);
                     setFullname('');
@@ -71,26 +80,11 @@ const NewProducts = () => {
         }
     }
 
-
-    const cuttedDescription = str => {
-        const splittedStr = str.split('');
-        if(splittedStr.length > 100){
-            const slicedStr = splittedStr.slice(0, 100);
-            return slicedStr.join('') + "...";
-        }else{
-            return str;
-        }
-    }
-
     const moreProducts = e => {
         e.preventDefault();
         if(data.count >= limit){
             setLimit(prev => prev + 3);
         }
-    }
-
-    const changeProductState = e => {
-        setProductState(e.target.value);
     }
 
     return (
@@ -104,100 +98,110 @@ const NewProducts = () => {
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             
             <main className='products_bg'>
-                <div className='select_category' id="product-categories">
-                    <div className='row align-items-center justify-content-between'>
-                        {
-                            categorySuccess ? (
-                                <div className='col-lg-6'>
-                                    <select value={category} onChange={e => setCategory(e.target.value)} className="form-select form-select-lg" aria-label=".form-select-lg example">
-                                        {
-                                            categories?.results.length > 0 ? (
+                <div className='row m-0'>
+                    <div className='col-lg-8'>
+                        <div className="product_container">
+                            {
+                                (data !== null && data?.results.length !== 0) ? (
+                                    data?.results.map(item => (
+                                        <Zoom bottom key={item.id}>
+                                            {
                                                 selectedLangSlug === 'RU' ? (
-                                                    <>
-                                                        <option value='all' defaultValue>{products.allProducts}</option>
-                                                        {
-                                                            categories?.results.map(({id, name}) => (
-                                                                <option key={id} value={id}>{name}</option>
-                                                            ))
-                                                        }
-                                                    </>
-                                                ) : ( 
-                                                    <>
-                                                        <option value='all' defaultValue>{products.allProducts}</option>
-                                                        {
-                                                            categories?.results.map(({id, name_en}) => (
-                                                                <option key={id} value={id}>{name_en}</option>
-                                                            ))
-                                                        }
-                                                    </>
+                                                    <div className="product_item mb-5">
+                                                        <div className="product_title">
+                                                            <p title={item.title}>{cuttedStr(item.title)}</p>
+                                                        </div>
+                                                        <div className="product_img" style={{background: `url('${item.image}') center / cover no-repeat`}}>
+                                                        </div>
+                                                        <div className="product_info">
+                                                            <p>{cuttedDescription(item.description)}</p>
+                                                            <div className="text-center pt-3">
+                                                                <HashLink to={`/product/${item.id}/#nav`}>Подробнее...</HashLink>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    <div className="product_item mb-5">
+                                                        <div className="product_title">
+                                                            <p title={item.title_en}>{cuttedStr(item.title_en)}</p>
+                                                        </div>
+                                                        <div className="product_img" style={{background: `url('${item.image}') center / cover no-repeat`}}>
+                                                        </div>
+                                                        <div className="product_info">
+                                                            <p>{cuttedDescription(item.description_en)}</p>
+                                                            <div className="text-center pt-3">
+                                                                <HashLink to={`/product/${item.id}/#nav`}>More...</HashLink>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 )
-                                            ) : (
-                                                <option>{products.noCategories}</option>
-                                            )
-                                        }
-                                    </select>
-                                </div>
-                            ) : null
-                        }
-                        <div className='col-lg-6'>
-                            <select onChange={changeProductState} value={productState} className="form-select form-select-lg" aria-label=".form-select-lg example">
-                                <option value='true' defaultValue>{products.isReady}</option>
-                                <option value='false'>{products.inProgress}</option>
-                            </select>
+                                            }
+                                            
+                                        </Zoom>
+                                    ))
+                                ) : (data === null) ? (
+                                    <div className="spinner-border m-auto" style={{width: '3rem', height: '3rem'}} role="status">
+                                        <span className="visually-hidden">{products.loading}</span>
+                                    </div>
+                                )
+                                : (
+                                    <h1 className='text-center m-auto'>{products.emptyProducts}</h1>
+                                )
+                            }
                         </div>
                     </div>
-                </div>
-                <div className="product_container">
-                    {
-                        (data !== null && data?.results.length !== 0) ? (
-                            data?.results.map(item => (
-                                <Zoom bottom key={item.id}>
+                    <div className='col-lg-4 mt-5'>
+                        <div className='card'>
+                            <div className='card-body'>
+                                <h4 className='text-center mb-4 categoryTitle'>{products.categoriesTitle}</h4>
+                                <ul className="list-group list-group-flush">
                                     {
-                                        selectedLangSlug === 'RU' ? (
-                                            <div className="product_item mb-5">
-                                                <div className="product_title">
-                                                    <p title={item.title}>{cuttedStr(item.title)}</p>
-                                                </div>
-                                                <div className="product_img" style={{background: `url('${item.image}') center / cover no-repeat`}}>
-                                                </div>
-                                                <div className="product_info">
-                                                    <p>{cuttedDescription(item.description)}</p>
-                                                    <div className="text-center pt-3">
-                                                        <HashLink to={`/products/${item.id}/#nav`}>Подробнее...</HashLink>
-                                                    </div>
-                                                </div>
+                                        categorySuccess === null ? (
+                                            <div className="spinner-border m-auto" style={{width: '3rem', height: '3rem'}} role="status">
+                                                <span className="visually-hidden">{products.loading}</span>
+                                            </div>
+                                        ) : !categorySuccess ? (
+                                            <div>
+                                                <h5 className='text-center'>{products.error}</h5>
                                             </div>
                                         ) : (
-                                            <div className="product_item mb-5">
-                                                <div className="product_title">
-                                                    <p title={item.title_en}>{cuttedStr(item.title_en)}</p>
-                                                </div>
-                                                <div className="product_img" style={{background: `url('${item.image}') center / cover no-repeat`}}>
-                                                </div>
-                                                <div className="product_info">
-                                                    <p>{cuttedDescription(item.description_en)}</p>
-                                                    <div className="text-center pt-3">
-                                                        <HashLink to={`/products/${item.id}/#nav`}>More...</HashLink>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            categories.results.length !== 0 ? (
+                                                categories?.results.map(({name, name_en, id}) => (
+                                                    <li className="list-group-item categoryLinkItem" key={id}>
+                                                        <NavLink to={`/products/${id}`}>
+                                                            {selectedLangSlug === 'RU' ? name : name_en}
+                                                        </NavLink>
+                                                    </li>
+                                                ))
+                                            ) : (
+                                                <p className='text-center'>{products.emptyCategories}</p>
+                                            )
                                         )
                                     }
                                     
-                                </Zoom>
-                            ))
-                        ) : (data === null) ? (
-                            <div className="spinner-border m-auto" style={{width: '3rem', height: '3rem'}} role="status">
-                                <span className="visually-hidden">{products.loading}</span>
+                                </ul>
                             </div>
-                        )
-                        : (
-                            <h1 className='text-center m-auto'>{products.emptyProducts}</h1>
-                        )
-                    }
+                        </div>
+                    </div>
                 </div>
+                
 
                 {
                     data?.count > 6 ? (
@@ -209,6 +213,22 @@ const NewProducts = () => {
                     )
                 }
             </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             {/* Form */}
             <div className="contBack">

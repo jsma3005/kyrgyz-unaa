@@ -44,7 +44,7 @@ const Footer = () => {
             <LiveContacts />
             <div className="centerFooter">
                 <div className="foot">
-                    <ol>
+                    {/* <ol>
                         {
                             footer.links.map(({id, title, link}) => (
                                 <li key={id}>
@@ -54,7 +54,7 @@ const Footer = () => {
                                 </li>
                             ))
                         }
-                    </ol>
+                    </ol> */}
                     <hr />
                     <ol>
                         <li>
@@ -64,12 +64,7 @@ const Footer = () => {
                         </li>
                         <li>
                             <NavHashLink activeClassName="bolds" to="/about/#about-content">
-                                {footer.about.desc}
-                            </NavHashLink>
-                        </li>
-                        <li>
-                            <NavHashLink activeClassName='bolds' to="/about/#video">
-                                {footer.about.video}
+                                {footer.about.history}
                             </NavHashLink>
                         </li>
                     </ol>
@@ -139,7 +134,7 @@ const Footer = () => {
                 <div className="polit">
                     <ul className="osoo">
                         <li>
-                            {footer.footTitle} {currentYear}
+                            {footer.footTitle} 2018 - {currentYear}
                         </li>
                     </ul>
                     <ul className="icons">

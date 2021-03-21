@@ -22,8 +22,8 @@ const App = () =>{
                 <NavBar />
                 <Switch>
                     <Route path="/" exact component={Main} />
-                    <Route path="/products" exact component={NewProducts} />
-                    <Route path="/products/:id" component={SingleProduct} />
+                    <Route path="/products/:categoryId" exact component={NewProducts} />
+                    <Route path='/product/:id' exact component={SingleProduct} />
                     <Route path="/about" component={About} />
                     <Route path="/news" exact component={News} />
                     <Route path="/news/:id" component={SingleNews} />

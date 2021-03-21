@@ -14,8 +14,6 @@ const SingleNews = () => {
         dispatch(getSingleNewsAction(id))
     }, [dispatch, id])
 
-    console.log(data);
-
 
     return(
         <main>

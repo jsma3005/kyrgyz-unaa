@@ -62,7 +62,7 @@ const Contacts = () => {
                 <div className="diller">
                     <Zoom bottom>
                         <h1 id="connect">{contacts.subTitle}</h1>
-                        <p className="mt-3">{contacts.chooseService}</p>
+                        {/* <p className="mt-3">{contacts.chooseService}</p> */}
                     </Zoom>
                 </div>
 
@@ -71,7 +71,7 @@ const Contacts = () => {
 
 
 
-                <div className="contactsCenter">
+                {/* <div className="contactsCenter">
                     <div className="inlineContacts">
                         {
                             contacts.services.map(({id, iconCls, title, title2}) => (
@@ -90,7 +90,7 @@ const Contacts = () => {
                             ))
                         }
                     </div>
-                </div>
+                </div> */}
             </section>
 
 

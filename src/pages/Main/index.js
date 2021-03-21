@@ -1,6 +1,4 @@
 import './Main.css';
-import EngineeringImg from '../../assets/Главная/Engineering.png'
-import GenImg from '../../assets/Главная/gen.png';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllNewsAction } from '../../redux/actions/newsActions';
@@ -8,7 +6,6 @@ import { parsedDate } from '../../utils/dateParser';
 import { NavHashLink } from 'react-router-hash-link'
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
-import Flip from 'react-reveal/Flip';
 
 const Main = () => {
     const dispatch = useDispatch();
@@ -20,8 +17,6 @@ const Main = () => {
     }, [dispatch])
 
     const news = data !== null ? data.results.slice(0, 3) : null;
-
-    console.log(data);
 
     return (
         <main id="mainPage">
@@ -111,50 +106,6 @@ const Main = () => {
                     </div>
                 </div>
             </section>
-
-
-
-
-            {/* <!-- Оборудование --> */}
-
-
-
-
-    
-            {/* <div className="oborud">
-                <Flip bottom>
-                    <h1>{main.devices}</h1>
-                </Flip>
-            </div>
-            <div className="mashCenter">
-                <div className="mashInline">
-                    <Zoom left>
-                        <div className="imgbox">
-                            <h1>{main.devicesTitle1}</h1>
-                            <div className="img">
-                                <img src={EngineeringImg} alt="" />
-                            </div>
-                        </div>
-                    </Zoom>
-                    <Zoom bottom>
-                        <div className="imgbox">
-                            <h1>{main.devicesTitle2}</h1>
-                            <div className="img">
-                                <img src={GenImg} alt="" />
-                            </div>
-                        </div>
-                    </Zoom>
-                    <Zoom right>
-                        <div className="imgbox">
-                            <h1>{main.devicesTitle3}</h1>
-                            <div className="img">
-                                <img src={EngineeringImg} alt="" />
-                            </div>
-                        </div>
-                    </Zoom>
-                </div>
-            </div> */}
-
 
 
             {/* <!-- Новости --> */}

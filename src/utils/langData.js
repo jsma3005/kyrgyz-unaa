@@ -30,12 +30,11 @@ export const ruLangData = {
             comment: 'Комментарий',
             submit: 'Отправить'
         },
-        allProducts: 'Все продукты',
-        isReady: 'Готовые продукты',
-        inProgress: 'В стадии разработки',
-        noCategories: 'Нет категорий',
+        categoriesTitle: 'Категории продуктов',
+        error: 'Что-то пошло не так!',
         loading: 'Загрузка...',
-        emptyProducts: 'Продукция пуста!'
+        emptyProducts: 'Продукция пуста!',
+        emptyCategories: 'Категории пусты!'
     },
     singleProducts: {
         title: 'Продукция',
@@ -128,8 +127,8 @@ export const ruLangData = {
         }
     },
     contacts: {
-        title: 'Свяжитесь с нами!',
-        subTitle: 'Свяжитесь с центром "КЫРГЫЗ УНАА КУРУЛУШ"',
+        title: 'Обратная связь!',
+        subTitle: 'Где мы находимся?',
         chooseService: 'Выберите интересующую вас услугу и заполните заявку',
         services: [
             {
@@ -169,7 +168,7 @@ export const ruLangData = {
             time: 'Часы работы: Пн - вс с 8:00 до 20:00'
         },
         form: {
-            title: 'Свяжитесь с нами',
+            title: 'Обратная связь',
             fullName: 'ФИО',
             contacts: 'Контактные номера',
             email: 'Электронная почта',
@@ -178,38 +177,12 @@ export const ruLangData = {
         }
     },
     navbar: {
-        links: [
-            {
-                id: 1,
-                title: 'Главная',
-                link: '/'
-            },
-            {
-                id: 2,
-                title: 'Продукции',
-                link: '/products'
-            },
-            {
-                id: 3,
-                title: 'О нас',
-                link: '/about'
-            },
-            {
-                id: 4,
-                title: 'Новости',
-                link: '/news'
-            },
-            {
-                id: 5,
-                title: 'Сертификаты',
-                link: '/certificate'
-            },
-            {
-                id: 6,
-                title: 'Контакты',
-                link: '/contacts'
-            }
-        ]
+        main: 'Главная',
+        products: 'Продукции',
+        about: 'О нас',
+        news: 'Новости',
+        certificate: 'Сертификаты',
+        contacts: 'Контакты'
     },
     footer: {
         links: [
@@ -246,8 +219,7 @@ export const ruLangData = {
         ],
         about: {
             title: 'О нас',
-            desc: 'Описание',
-            video: 'Смотреть видео'
+            history: 'Наша история'
         },
         products: {
             title: 'Продукция',
@@ -299,12 +271,11 @@ export const enLangData = {
             comment: 'Comment',
             submit: 'Submit'
         },
-        allProducts: 'All products',
-        isReady: 'Finished products',
-        inProgress: 'Under development',
-        noCategories: 'No categories',
+        categoriesTitle: 'Products categories',
+        error: 'Something went wrong!',
         loading: 'Loading...',
-        emptyProducts: 'Product is empty!'
+        emptyProducts: 'Product is empty!',
+        emptyCategories: 'Categories are empty!'
     },
     singleProducts: {
         title: 'Products',
@@ -397,8 +368,8 @@ export const enLangData = {
         }
     },
     contacts: {
-        title: 'Contact us!',
-        subTitle: 'Contact the center "KYRGYZ UNAA KURULUSH"',
+        title: 'Feedback!',
+        subTitle: 'Where are we?',
         chooseService: 'Select the service you are interested in and fill out the form',
         services: [
             {
@@ -438,7 +409,7 @@ export const enLangData = {
             time: 'Work hours: Mon - Sun, 8:00-20:00'
         },
         form: {
-            title: 'Contact us',
+            title: 'Feedback',
             fullName: 'Full name',
             contacts: 'Number',
             email: 'Email',
@@ -447,38 +418,12 @@ export const enLangData = {
         }
     },
     navbar: {
-        links: [
-            {
-                id: 1,
-                title: 'Main',
-                link: '/'
-            },
-            {
-                id: 2,
-                title: 'Products',
-                link: '/products'
-            },
-            {
-                id: 3,
-                title: 'About',
-                link: '/about'
-            },
-            {
-                id: 4,
-                title: 'News',
-                link: '/news'
-            },
-            {
-                id: 5,
-                title: 'Certificate',
-                link: '/certificate'
-            },
-            {
-                id: 6,
-                title: 'Contacts',
-                link: '/contacts'
-            }
-        ]
+        main: 'Main',
+        products: 'Products',
+        about: 'About',
+        news: 'News',
+        certificate: 'Certificates',
+        contacts: 'Contacts'
     },
     footer: {
         links: [
@@ -515,8 +460,7 @@ export const enLangData = {
         ],
         about: {
             title: 'About',
-            desc: 'Description',
-            video: 'Watch the video'
+            history: 'Our history'
         },
         products: {
             title: 'Products',

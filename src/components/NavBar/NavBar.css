@@ -163,7 +163,7 @@ nav a{
 
 @media (max-width:1400px){
     .nav-link{
-        font-size: 1.150rem;
+        font-size: 1.1rem;
     }
 }
 
@@ -174,7 +174,7 @@ nav a{
         /* font-size: 15px !important; */
     }
     .nav-link{
-        font-size: 1.100rem;
+        font-size: 1.1rem;
     }
 }
 
@@ -316,3 +316,21 @@ nav a{
 
 
 
+
+
+
+/* Dropdown */
+.productsLink{
+    position: relative;
+}
+.productDropDown{
+    position: absolute;
+    background-color: rgba(255,255,255,.9) !important;
+    padding: 1rem;
+}
+.productDropDown li a{
+    color: #3e536f !important;
+}
+.productDropDown li a:hover{
+    color: #09182c !important;
+}
