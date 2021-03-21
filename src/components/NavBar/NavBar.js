@@ -104,7 +104,7 @@ const NavBar = () => {
                                     <NavLink exact className="nav-link" aria-current="page" to='/about'>{navbar.about}</NavLink>
                                 </li>
                                 <li onClick={closeCollase} className="nav-item">
-                                    <NavLink exact className="nav-link" aria-current="page" to='/new'>{navbar.news}</NavLink>
+                                    <NavLink exact className="nav-link" aria-current="page" to='/news'>{navbar.news}</NavLink>
                                 </li>
                                 <li onClick={closeCollase} className="nav-item">
                                     <NavLink exact className="nav-link" aria-current="page" to='/certificate'>{navbar.certificate}</NavLink>
