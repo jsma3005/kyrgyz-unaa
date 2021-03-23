@@ -6,11 +6,19 @@ import { parsedDate } from '../../utils/dateParser';
 import { NavHashLink } from 'react-router-hash-link'
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
+import { getAllCategoriesAction } from '../../redux/actions/productsActions';
 
 const Main = () => {
     const dispatch = useDispatch();
     const { data } = useSelector(s => s.news);
     const {selectedLang: {main}, selectedLangSlug} = useSelector(s => s.langs);
+    const {categories, categorySuccess} = useSelector(s => s.categories);
+
+    useEffect(() => {
+        dispatch(getAllCategoriesAction({
+            limit: 1
+        }));
+    }, [dispatch])
 
     useEffect(() => {
         dispatch(getAllNewsAction())
@@ -56,7 +64,13 @@ const Main = () => {
                                     <div className="mt-5">
                                         <Zoom bottom>
                                             <h4>{main.productionTitle}</h4>
-                                            <NavHashLink to="/products/#nav" >{main.knowMoreBtn}</NavHashLink>
+                                            {
+                                                (!categorySuccess || categories?.results.length === 0) ? (
+                                                    <NavHashLink to="/products/#nav" >{main.knowMoreBtn}</NavHashLink>
+                                                )  : (
+                                                    <NavHashLink to={`/products/${categories?.results[0].id}/#nav`} >{main.knowMoreBtn}</NavHashLink>
+                                                )
+                                            }
                                         </Zoom>
                                     </div>
                                 </div>

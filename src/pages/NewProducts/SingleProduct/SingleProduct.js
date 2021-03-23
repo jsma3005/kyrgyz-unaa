@@ -19,7 +19,7 @@ const SingleProduct = () => {
         <div>
             <div className="banner">    
                 <div className="mai singleProductsTitleContainer">
-                    <div className="bannerT">
+                    <div className="bannerT singleProductTitleContainer">
                         <Zoom bottom>
                             {
                                 selectedLangSlug === 'RU' ? (
