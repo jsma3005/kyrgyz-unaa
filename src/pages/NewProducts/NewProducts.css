@@ -378,4 +378,9 @@
   text-decoration: none;
   color: #3e536f;
   font-size: 1.2rem;  
+  transition: .3s;
+}
+.categoryLinkItem a:hover{
+  color: #3e536f;
+  font-weight: bold;
 }
