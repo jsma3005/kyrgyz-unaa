@@ -7,8 +7,6 @@ import Facebook from '../../assets/Footer/facebook.svg';
 import Youtube from '../../assets/Footer/youtube.svg';
 import Instagram from '../../assets/Footer/instagram.svg';
 import Whatsapp from '../../assets/Footer/whatsapp.svg';
-import { getAllCategoriesAction } from '../../redux/actions/productsActions';
-import { useEffect } from 'react';
 
 const socialNetwork = [
     {
@@ -39,16 +37,9 @@ const socialNetwork = [
 
 const Footer = () => {
     const currentYear = moment().format('YYYY');
-    const dispatch = useDispatch();
     const {selectedLang: {footer}, selectedLangSlug} = useSelector(s => s.langs)
-    const {categories, categorySuccess} = useSelector(s => s.categories);
 
-    useEffect(() => {
-        dispatch(getAllCategoriesAction({
-            limit: 3
-        }));
-    }, [dispatch])
-    
+
     return (
         <footer>
             <LiveContacts />
@@ -80,38 +71,18 @@ const Footer = () => {
                     </ol>
 
                     <hr />
-
-                    {
-                        (!categorySuccess || categories?.results.length === 0) ? null : (
-                            <ol>
-                                <li>
-                                    <b>
-                                        {footer.products.title}
-                                    </b>
-                                </li>
-                                {
-                                    categories?.results.map(({id, name, name_en}) => (
-                                        <li key={id}>
-                                            <NavHashLink to={`/products/${id}/#nav`} activeClassName='bolds'>
-                                                {
-                                                    selectedLangSlug === 'RU' ? (
-                                                        name
-                                                    ) : (
-                                                        name_en
-                                                    )
-                                                }
-                                            </NavHashLink>
-                                        </li>
-                                    ))
-                                }
-                                {/* <li>
-                                    <NavHashLink to="/products/#product-categories" activeClassName='bolds'>
-                                        {footer.products.all}
-                                    </NavHashLink>
-                                </li> */}
-                            </ol>
-                        ) 
-                    }
+                    {/* <ol>
+                        <li>
+                            <b>
+                                {footer.products.title}
+                            </b>
+                        </li>
+                        <li>
+                            <NavHashLink to="/products/#product-categories" activeClassName='bolds'>
+                                {footer.products.all}
+                            </NavHashLink>
+                        </li>
+                    </ol> */}
                     <hr />
                     <ol>
                         <li>

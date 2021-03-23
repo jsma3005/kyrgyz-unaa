@@ -16,7 +16,7 @@ const Main = () => {
 
     useEffect(() => {
         dispatch(getAllCategoriesAction({
-            limit: 1
+            limit: 50
         }));
     }, [dispatch])
 
