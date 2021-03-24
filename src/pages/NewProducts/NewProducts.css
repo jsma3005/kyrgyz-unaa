@@ -54,7 +54,7 @@
 
 .product_container{
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	align-items: center;
 	flex-wrap: wrap;
 	padding: 3rem;
@@ -65,6 +65,7 @@
 	height: 100%;
 	box-shadow: 0px 0px 15px rgba(0,0,0,.6);
 	overflow: hidden !important;
+  margin: 0 1rem;
 }
 
 .product_title{
