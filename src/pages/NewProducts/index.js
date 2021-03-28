@@ -167,8 +167,8 @@ const NewProducts = () => {
                             }
                         </div>
                     </div>
-                    <div className='col-lg-4 mt-5'>
-                        <div className='card'>
+                    <div className='col-lg-4 mt-5 categoryMenu' >
+                        <div className='card widthCard'>
                             <div className='card-body'>
                                 <h4 className='text-center mb-4 categoryTitle'>{products.categoriesTitle}</h4>
                                 <ul className="list-group list-group-flush">

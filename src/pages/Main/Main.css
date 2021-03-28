@@ -883,7 +883,14 @@
 
 
 
-
+@media (max-width:320px){
+    .btns{
+        margin: 50px ;
+    }
+    .btns a{
+        padding: 20px 50px;
+    }
+}
 
 
 
