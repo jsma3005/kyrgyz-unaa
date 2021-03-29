@@ -208,3 +208,27 @@
     text-align: right;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:329px){
+    .cards{
+        box-shadow: 0 5px 20px gainsboro;
+        width: 400px;
+        height: 540px;
+        position: relative;
+    }
+}
+
