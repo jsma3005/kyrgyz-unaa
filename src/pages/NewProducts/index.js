@@ -115,8 +115,8 @@ const NewProducts = () => {
 
             
             <main className='products_bg'>
-                <div className='row m-0'>
-                    <div className='col-lg-8'>
+                <div className='products_row m-0'>
+                    <div className='product_layout'>
                         <div className="product_container">
                             {
                                 (data !== null && data?.results.length !== 0) ? (
@@ -167,7 +167,7 @@ const NewProducts = () => {
                             }
                         </div>
                     </div>
-                    <div className='col-lg-4 mt-5 categoryMenu' >
+                    <div className='mt-5 categoryMenu'>
                         <div className='card widthCard'>
                             <div className='card-body'>
                                 <h4 className='text-center mb-4 categoryTitle'>{products.categoriesTitle}</h4>

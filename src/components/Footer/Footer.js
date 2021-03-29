@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { NavHashLink } from 'react-router-hash-link'
 import LiveContacts from '../LiveContacts/LiveContacts';
 import './Footer.css';
@@ -37,7 +37,7 @@ const socialNetwork = [
 
 const Footer = () => {
     const currentYear = moment().format('YYYY');
-    const {selectedLang: {footer}, selectedLangSlug} = useSelector(s => s.langs)
+    const {selectedLang: {footer}} = useSelector(s => s.langs)
 
 
     return (
