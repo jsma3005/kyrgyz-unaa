@@ -6,7 +6,34 @@ import Certificate4 from '../../assets/Сертификаты/ТРАНСФОРМ
 import { useSelector } from 'react-redux';
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
+// Swiper JS
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { EffectCoverflow, Autoplay, Navigation } from 'swiper';
+import 'swiper/components/effect-coverflow/effect-coverflow.scss';
+import 'swiper/components/navigation/navigation.scss';
+import 'swiper/swiper.scss';
+import Media from 'react-media';
 
+SwiperCore.use([EffectCoverflow, Autoplay, Navigation]);
+
+const certificatesData = [
+    {
+        id: 1,
+        img: Certificate1
+    },
+    {
+        id: 2,
+        img: Certificate2
+    },
+    {
+        id: 3,
+        img: Certificate3
+    },
+    {
+        id: 4,
+        img: Certificate4
+    }
+]
 
 const Certificate = () => {
     const {selectedLang: {certificate}} = useSelector(s => s.langs);
@@ -25,7 +52,44 @@ const Certificate = () => {
             {/* <!-- Сертификаты кыргыз унаа --> */}
 
 
-            <section>
+            <Fade>
+                <Media
+                    queries={{
+                        medium: "(max-width: 1100px)"
+                    }}
+                >
+                    {
+                        matches => (
+                            <section className='certificate_carousel'>
+                                <Swiper
+                                    effect='coverflow'
+                                    navigation
+                                    slidesPerView={matches.medium ? 1 : 2}
+                                    spaceBetween={50}
+                                    centeredSlides={true}
+                                    autoHeight={true}
+                                    loop={true}
+                                    autoplay={{
+                                        delay: 2000,
+                                        disableOnInteraction: true
+                                    }}
+                                >
+                                    {
+                                        certificatesData.map(item => (
+                                            <SwiperSlide key={item.id} className='certificate_slide'>
+                                                <img src={item.img} alt='Certificate' />
+                                            </SwiperSlide>
+                                        ))
+                                    }
+                                </Swiper>
+                            </section>
+                        )
+                    }
+                </Media>
+            </Fade>
+
+
+            {/* <section>
                 <div className="paperBlock">
                     <div className="firstInline">
                         <Fade left>
@@ -110,7 +174,7 @@ const Certificate = () => {
                         </Fade>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </main>
     )
 }

@@ -48,3 +48,28 @@
     text-indent: 2rem;
     line-height: 1.8;
 }
+
+@media screen and (max-width: 650px){
+    .card img{
+        width: 80%;
+    }
+    .card p {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .card{
+        width: 90%;
+        margin: 4rem auto;
+    }
+    .card img{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 420px){
+    .card p {
+        width: 100%;
+    }
+}

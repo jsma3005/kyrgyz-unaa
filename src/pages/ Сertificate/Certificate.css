@@ -230,5 +230,42 @@
 
 
 
+.certificate_carousel{
+    margin: 5rem auto;
+    width: 100%;
+}
+.certificate_slide{
+    text-align: center;
+}
 
 
+.certificate_carousel{
+    max-width: 1450px;
+}
+
+@media screen and (max-width: 720px){
+    .certificate_slide{
+        padding: 1rem 3rem;
+    }
+    .certificate_slide img{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .certificate_slide{
+        padding: 1rem 5rem;
+    }
+    .certificate_slide img{
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .certificate_slide{
+        padding: 1rem 2.5rem;
+    }
+    .certificate_slide img{
+        width: 100% !important;
+    }
+}
