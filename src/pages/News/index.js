@@ -51,7 +51,7 @@ const News = () => {
                                 news.slice(0, 3).map(item => (
                                     <div key={item.id} >
                                         <div className="slider-item" style={{background: `url('${item.image}') top center / cover`, width: '100%', height: '80vh'}}>
-                                            <h1>{item.title}</h1>
+                                            <h1 className='news_slider_title'>{item.title}</h1>
                                         </div>
                                     </div>
                                 ))
