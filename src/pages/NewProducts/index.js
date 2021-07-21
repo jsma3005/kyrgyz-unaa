@@ -35,22 +35,30 @@ const NewProducts = () => {
     }, [dispatch, limit, categoryId]);
 
     const cuttedStr = str => {
-        const splittedStr = str.split(' ');
-        if(splittedStr.length > 4){
-            const slicedStr = splittedStr.slice(0, 4);
-            return slicedStr.join(' ');
+        if(str){
+            const splittedStr = str.split(' ');
+            if(splittedStr.length > 4){
+                const slicedStr = splittedStr.slice(0, 4);
+                return slicedStr.join(' ');
+            }else{
+                return str;
+            }
         }else{
             return str;
         }
     }
 
     const cuttedDescription = str => {
-        const splittedStr = str.split('');
-        if(splittedStr.length > 100){
-            const slicedStr = splittedStr.slice(0, 100);
-            return slicedStr.join('') + "...";
+        if(str){
+            const splittedStr = str.split('');
+            if(splittedStr.length > 100){
+                const slicedStr = splittedStr.slice(0, 100);
+                return slicedStr.join('') + "...";
+            }else{
+                return str;
+            }
         }else{
-            return str;
+            return str
         }
     }
 
