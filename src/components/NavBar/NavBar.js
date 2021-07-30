@@ -8,6 +8,7 @@ import { HashLink } from 'react-router-hash-link'
 import { useEffect } from 'react';
 import Bounce from 'react-reveal/Bounce';
 import Flip from 'react-reveal/Flip';
+import { phones } from '../../business';
 
 const NavBar = () => {
     const dispatch = useDispatch();
@@ -138,10 +139,10 @@ const NavBar = () => {
                                     </HashLink>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="tel:+996 (990) 980 980" className="nav-link tel">
+                                    <a href={`tel:${phones.first}`} className="nav-link tel">
                                         <i className="fa fa-phone"></i>
                                         <span>
-                                            +996 (990) 980 980
+                                            {phones.first}
                                         </span>
                                     </a>
                                 </li>

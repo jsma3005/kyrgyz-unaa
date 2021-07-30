@@ -7,6 +7,7 @@ import Facebook from '../../assets/Footer/facebook.svg';
 import Youtube from '../../assets/Footer/youtube.svg';
 import Instagram from '../../assets/Footer/instagram.svg';
 import Whatsapp from '../../assets/Footer/whatsapp.svg';
+import { phones } from '../../business';
 
 const socialNetwork = [
     {
@@ -31,7 +32,7 @@ const socialNetwork = [
         id: 4,
         title: 'WhatsApp',
         img: Whatsapp,
-        link: 'https://api.whatsapp.com/send?phone=996990980980'
+        link: `https://api.whatsapp.com/send?phone=${phones.first}`
     }
 ]
 
@@ -123,9 +124,15 @@ const Footer = () => {
                             </b>
                         </li>
                         <li>
-                            <a href="tel:996(990)980980">
+                            <a href={`tel:${phones.first}`}>
                                 <i className="fa fa-phone"></i>
-                                +996 (990) 980 980
+                                {phones.first}
+                            </a>
+                        </li>
+                        <li>
+                            <a href={`tel:${phones.second}`}>
+                                <i className="fa fa-phone"></i>
+                                {phones.second}
                             </a>
                         </li>
                     </ol>

@@ -4,6 +4,7 @@ import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
 import { useState } from 'react';
 import { postNewForm } from '../../API/index';
+import { phones } from '../../business';
 
 const Contacts = () => {
     const {selectedLang: {contacts}} = useSelector(s => s.langs);
@@ -43,7 +44,7 @@ const Contacts = () => {
 
     return (
         <main>
-           <section>
+            <section>
                <div className="bannerContacts">
                     <Fade left>
                         <div className="bannerText_contacts">
@@ -55,51 +56,15 @@ const Contacts = () => {
                         </div>
                     </Fade>
                </div>
-           </section>
-
+            </section>
 
             <section>
                 <div className="diller">
                     <Zoom bottom>
                         <h1 id="connect">{contacts.subTitle}</h1>
-                        {/* <p className="mt-3">{contacts.chooseService}</p> */}
                     </Zoom>
                 </div>
-
-
-                {/* <!-- КАРТОЧКИ ПО СВЯЗИ --> */}
-
-
-
-                {/* <div className="contactsCenter">
-                    <div className="inlineContacts">
-                        {
-                            contacts.services.map(({id, iconCls, title, title2}) => (
-                                <Zoom top  key={id}>
-                                    <a href="#form">
-                                        <div className="cards_contacts">
-                                            <div className="icon">
-                                                <i className={iconCls} ></i>
-                                            </div>
-                                            <div>
-                                                <h4>{title} <br /> {title2}</h4>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </Zoom>
-                            ))
-                        }
-                    </div>
-                </div> */}
             </section>
-
-
-
-
-        {/* <!-- КАРТА И АДРЕС --> */}
-
-
-
 
             <section id="map-content">
                 <div className="mapsCenter_contacts">
@@ -118,7 +83,10 @@ const Contacts = () => {
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="tel:+996(990)980980">+996 (990) 980 980</a>
+                                            <a href={`tel:${phones.first}`}>{phones.first}</a>
+                                        </li>
+                                        <li>
+                                            <a href={`tel:${phones.first}`}>{phones.second}</a>
                                         </li>
                                         <li>
                                             {contacts.address.time}
